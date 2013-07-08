@@ -1,0 +1,126 @@
+-- MAX+plus II - generated Memory Initialization File
+
+-- Copyright (C) 1988-1999 Altera Corporation
+-- Any megafunction design, and related net list (encrypted or decrypted),
+-- support information, device programming or simulation file, and any other
+-- associated documentation or information provided by Altera or a partner
+-- under Altera's Megafunction Partnership Program may be used only to
+-- program PLD devices (but not masked PLD devices) from Altera.  Any other
+-- use of such megafunction design, net list, support information, device
+-- programming or simulation file, or any other related documentation or
+-- information is prohibited for any other purpose, including, but not
+-- limited to modification, reverse engineering, de-compiling, or use with
+-- any other silicon devices, unless such use is explicitly licensed under
+-- a separate agreement with Altera or a megafunction partner.  Title to
+-- the intellectual property, including patents, copyrights, trademarks,
+-- trade secrets, or maskworks, embodied in any such megafunction design,
+-- net list, support information, device programming or simulation file, or
+-- any other related documentation or information provided by Altera or a
+-- megafunction partner, remains with Altera, the megafunction partner, or
+-- their respective licensors.  No other licenses, including any licenses
+-- needed under any third party's intellectual property, are provided herein.
+
+WIDTH = 8;
+DEPTH = 96;
+
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+
+CONTENT BEGIN
+0   :E0; 
+1   :00;
+2   :E8;
+3   :aa;
+4   :F0;
+5   :55;
+6   :F8;
+7   :ff;
+8   :A8;
+9   :5e;
+a   :B0;
+b   :5f;
+c   :88;
+d   :5f;
+e   :90;
+f   :5e;
+10  :01;
+11  :C0;
+12  :58;
+13  :C8;
+14  :5a;
+15  :D0;
+16  :5c;
+17  :0B;
+18  :C0;
+19  :1b;
+1a  :E0;
+1b  :40;
+1c  :63;
+1d  :C0;
+1e  :20;
+1f  :E0;
+20  :51;
+21  :4A;
+22  :C0;
+23  :25;
+24  :E0;
+25  :16;
+26  :16;
+27  :C0;
+28  :2a;
+29  :E0;
+2a  :03;
+2b  :7B;
+2c  :C8;
+2d  :2f;
+2e  :E0;
+2f  :69;
+30  :49;
+31  :C8;
+32  :34;
+33  :E0;
+34  :69;
+35  :01;
+36  :C8;
+37  :39;
+38  :E0;
+39  :02;
+3a  :0D;
+3b  :C8;
+3c  :3e;
+3d  :E0;
+3e  :0A;
+3f  :0A;
+40  :2A;
+41  :C8;
+42  :44;
+43  :E0;
+44  :4a;
+45  :0D;
+46  :D0;
+47  :49;
+48  :E0;
+49  :01;
+4a  :D8;
+4b  :4f;
+4c  :E0;
+4d  :D8;
+4e  :55;
+4f  :01;
+50  :01;
+51  :02;
+52  :03;
+53  :A0;
+54  :57;
+55  :D8;
+56  :55;
+57  :00;
+58  :e0;
+59  :11;
+5A  :e0;
+5B  :22;
+5C  :d8;
+5D  :17;
+5E  :00;
+5F  :00;
+END;

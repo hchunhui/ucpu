@@ -1,0 +1,91 @@
+00 11100000  ldi  a0, 0x70
+01 01110000
+02 11101000  ldi  a1, 0x80
+03 10000000
+04 11100100  call quick_sort
+05 00011000
+06 11011000  jmp  .
+07 00000110
+
+//quick_sort(p, r)
+//init reg alloc:
+//a0  p
+//a1  r
+//a2  i
+//a3  x
+  quick_sort:
+18 11111000   ldi  a3, 1
+19 00000001
+1a 01001011   sub  a1, a3  //r--;
+1b 10011101   ldr  a3, a1  //x=*r;
+1c 00101100   push a0
+1d 00110110   pop  a2      //i=p;
+  
+1e 00101100   push a0      //pp = p;
+  loop:
+1f 00101100   push a0      //
+20 01000001   sub  a0, a1  // while(p < r)
+21 11001000   jz   out     //
+22 34H
+23 00110100   pop  a0      //
+24 00101100   push a0
+25 10000100   ldr  a0, a0
+26 01000011   sub  a0, a3
+27 11000000   jc   sw2     // if(*p < x) goto sw2 else goto sw1;
+28 30H
+  sw1:
+29 00110100   pop  a0
+2a 11100100   call swap    //swap(i, p);
+2b 60H
+2c 01110010   inc  a2, a2  //i++;
+2d 01100000   inc  a0, a0  //p++;
+2e 11011000   jmp  loop
+2f 1FH
+  sw2:
+30 00110100   pop  a0
+31 01100000   inc  a0, a0  //p++;
+32 11011000   jmp  loop
+33 1FH
+  out:
+34 00101101   push a1
+35 00110100   pop  a0
+36 11100100   call swap    //swap(r, i);
+37 60H
+38 00110100   pop  a0      //p = pp;
+39 00110100   pop  a0      //pop again...
+3a 01101001   inc  a1, a1  //r++;
+    
+3b 00101101   push a1
+3c 00101110   push a2
+    
+3d 00101110   push a2
+3e 00110101   pop  a1
+3f 01010000   sub  a2, a0
+40 11000000   jc   next  //i < p
+41 46H
+42 11001000   jz   next
+43 46H
+44 11100100   call quick_sort
+45 18H
+    
+  next:
+46 00110110   pop  a2
+47 00110101   pop  a1
+    
+48 01100010   inc a0, a2	//i++, p = i
+49 01110010   inc a2, a2
+4a 01010001   sub a2, a1
+4b 11000000   jc  quick_sort //i < r
+4c 18H
+4d 00100100   ret
+    
+  //swap(a0, a2): a0, a2 is a pointer
+60 00101101   push a1
+61 00101111   push a3
+62 10001100   ldr  a1, a0
+63 10011110   ldr  a3, a2
+64 10100111   str  a0, a3
+65 10110101   str  a2, a1
+66 00110111   pop  a3
+67 00110101   pop  a1
+68 00100100   ret

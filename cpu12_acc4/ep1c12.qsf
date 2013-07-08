@@ -1,0 +1,217 @@
+# Copyright (C) 1991-2004 Altera Corporation
+# Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+# support information,  device programming or simulation file,  and any other
+# associated  documentation or information  provided by  Altera  or a partner
+# under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+# to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+# other  use  of such  megafunction  design,  netlist,  support  information,
+# device programming or simulation file,  or any other  related documentation
+# or information  is prohibited  for  any  other purpose,  including, but not
+# limited to  modification,  reverse engineering,  de-compiling, or use  with
+# any other  silicon devices,  unless such use is  explicitly  licensed under
+# a separate agreement with  Altera  or a megafunction partner.  Title to the
+# intellectual property,  including patents,  copyrights,  trademarks,  trade
+# secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+# support  information,  device programming or simulation file,  or any other
+# related documentation or information provided by  Altera  or a megafunction
+# partner, remains with Altera, the megafunction partner, or their respective
+# licensors. No other licenses, including any licenses needed under any third
+# party's intellectual property, are provided herein.
+
+
+# The default values for assignments are stored in the file
+#		ep1c12_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 4.2
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:07:30  NOVEMBER 02, 2006"
+set_global_assignment -name LAST_QUARTUS_VERSION 6.0
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_1 -to _WR
+set_location_assignment PIN_3 -to _RD
+set_location_assignment PIN_6 -to _CS
+set_location_assignment PIN_7 -to _0x6
+set_location_assignment PIN_8 -to _0xd
+set_location_assignment PIN_12 -to _D\[7\]
+set_location_assignment PIN_13 -to _D\[6\]
+set_location_assignment PIN_14 -to _D\[5\]
+set_location_assignment PIN_15 -to _D\[4\]
+set_location_assignment PIN_16 -to _D\[3\]
+set_location_assignment PIN_17 -to _D\[2\]
+set_location_assignment PIN_18 -to _D\[1\]
+set_location_assignment PIN_19 -to _D\[0\]
+set_location_assignment PIN_21 -to INT5
+set_location_assignment PIN_28 -to OCLK
+set_location_assignment PIN_29 -to GCLK
+set_location_assignment PIN_41 -to _A\[11\]
+set_location_assignment PIN_42 -to _A\[10\]
+set_location_assignment PIN_43 -to _A\[9\]
+set_location_assignment PIN_44 -to _A\[8\]
+set_location_assignment PIN_45 -to _A\[7\]
+set_location_assignment PIN_46 -to _A\[6\]
+set_location_assignment PIN_47 -to _A\[5\]
+set_location_assignment PIN_48 -to _A\[4\]
+set_location_assignment PIN_49 -to _A\[3\]
+set_location_assignment PIN_53 -to _A\[2\]
+set_location_assignment PIN_54 -to _A\[1\]
+set_location_assignment PIN_56 -to _A\[0\]
+set_location_assignment PIN_58 -to RESET
+set_location_assignment PIN_60 -to NMI
+set_location_assignment PIN_61 -to C_R\[11\]
+set_location_assignment PIN_62 -to C_R\[10\]
+set_location_assignment PIN_63 -to C_R\[9\]
+set_location_assignment PIN_64 -to C_R\[8\]
+set_location_assignment PIN_66 -to C_R\[7\]
+set_location_assignment PIN_67 -to C_R\[6\]
+set_location_assignment PIN_68 -to C_R\[5\]
+set_location_assignment PIN_74 -to IRQ\[4\]
+set_location_assignment PIN_75 -to C_R\[4\]
+set_location_assignment PIN_76 -to C_R\[3\]
+set_location_assignment PIN_77 -to C_R\[2\]
+set_location_assignment PIN_78 -to C_R\[1\]
+set_location_assignment PIN_79 -to C_R\[0\]
+set_location_assignment PIN_82 -to IRQ\[3\]
+set_location_assignment PIN_84 -to A_\[15\]
+set_location_assignment PIN_85 -to A_\[14\]
+set_location_assignment PIN_87 -to A_\[12\]
+set_location_assignment PIN_88 -to A_\[11\]
+set_location_assignment PIN_94 -to IRQ\[2\]
+set_location_assignment PIN_98 -to A_\[10\]
+set_location_assignment PIN_99 -to A_\[9\]
+set_location_assignment PIN_100 -to A_\[8\]
+set_location_assignment PIN_101 -to A_\[7\]
+set_location_assignment PIN_104 -to A_\[6\]
+set_location_assignment PIN_105 -to A_\[5\]
+set_location_assignment PIN_106 -to IRQ\[1\]
+set_location_assignment PIN_113 -to A_\[4\]
+set_location_assignment PIN_114 -to A_\[3\]
+set_location_assignment PIN_115 -to A_\[2\]
+set_location_assignment PIN_116 -to A_\[1\]
+set_location_assignment PIN_117 -to A_\[0\]
+set_location_assignment PIN_119 -to MD\[31\]
+set_location_assignment PIN_120 -to MD\[30\]
+set_location_assignment PIN_121 -to MD\[29\]
+set_location_assignment PIN_122 -to MD\[28\]
+set_location_assignment PIN_123 -to MD\[27\]
+set_location_assignment PIN_124 -to MD\[26\]
+set_location_assignment PIN_125 -to MD\[25\]
+set_location_assignment PIN_126 -to MD\[24\]
+set_location_assignment PIN_127 -to A_\[23\]
+set_location_assignment PIN_131 -to A_\[22\]
+set_location_assignment PIN_132 -to MD\[23\]
+set_location_assignment PIN_133 -to MD\[22\]
+set_location_assignment PIN_134 -to MD\[21\]
+set_location_assignment PIN_135 -to MD\[20\]
+set_location_assignment PIN_136 -to MD\[19\]
+set_location_assignment PIN_137 -to MD\[18\]
+set_location_assignment PIN_138 -to MD\[17\]
+set_location_assignment PIN_139 -to MD\[16\]
+set_location_assignment PIN_141 -to BUS_CLK
+set_location_assignment PIN_143 -to A_\[21\]
+set_location_assignment PIN_144 -to A_\[20\]
+set_location_assignment PIN_152 -to F_CLK
+set_location_assignment PIN_156 -to A_\[19\]
+set_location_assignment PIN_158 -to MD\[15\]
+set_location_assignment PIN_159 -to MD\[14\]
+set_location_assignment PIN_160 -to MD\[13\]
+set_location_assignment PIN_161 -to MD\[12\]
+set_location_assignment PIN_162 -to MD\[11\]
+set_location_assignment PIN_163 -to MD\[10\]
+set_location_assignment PIN_164 -to MD\[9\]
+set_location_assignment PIN_165 -to MD\[8\]
+set_location_assignment PIN_166 -to MD\[7\]
+set_location_assignment PIN_167 -to MD\[6\]
+set_location_assignment PIN_168 -to MD\[5\]
+set_location_assignment PIN_169 -to MD\[4\]
+set_location_assignment PIN_173 -to MD\[3\]
+set_location_assignment PIN_174 -to MD\[2\]
+set_location_assignment PIN_175 -to MD\[1\]
+set_location_assignment PIN_176 -to A_\[18\]
+set_location_assignment PIN_177 -to A_\[17\]
+set_location_assignment PIN_178 -to A_\[16\]
+set_location_assignment PIN_179 -to MD\[0\]
+set_location_assignment PIN_181 -to A_30
+set_location_assignment PIN_182 -to A_31
+set_location_assignment PIN_183 -to ALE
+set_location_assignment PIN_184 -to EN_A
+set_location_assignment PIN_185 -to D_DIR
+set_location_assignment PIN_187 -to C_A\[0\]
+set_location_assignment PIN_188 -to C_A\[1\]
+set_location_assignment PIN_196 -to C_BE\[0\]
+set_location_assignment PIN_197 -to C_BE\[1\]
+set_location_assignment PIN_200 -to C_BE\[2\]
+set_location_assignment PIN_201 -to C_BE\[3\]
+set_location_assignment PIN_203 -to C_A\[2\]
+set_location_assignment PIN_206 -to C_A\[3\]
+set_location_assignment PIN_207 -to C_A\[4\]
+set_location_assignment PIN_214 -to C_A\[5\]
+set_location_assignment PIN_215 -to C_A\[6\]
+set_location_assignment PIN_216 -to C_A\[7\]
+set_location_assignment PIN_222 -to T\[0\]
+set_location_assignment PIN_223 -to T\[1\]
+set_location_assignment PIN_224 -to T\[2\]
+set_location_assignment PIN_225 -to T\[3\]
+set_location_assignment PIN_226 -to END_I
+set_location_assignment PIN_233 -to STOP
+set_location_assignment PIN_234 -to CK
+set_location_assignment PIN_238 -to S_RST
+set_location_assignment PIN_239 -to S_INT
+set_location_assignment PIN_240 -to RUN
+set_location_assignment PIN_236 -to OSC_CLK
+set_location_assignment PIN_237 -to CLK
+set_location_assignment PIN_153 -to WR
+set_location_assignment PIN_217 -to SET_CP
+set_location_assignment PIN_218 -to PC_BKT
+set_location_assignment PIN_86 -to A_\[13\]
+set_location_assignment PIN_20 -to OE
+set_location_assignment PIN_59 -to mode
+
+# Timing Assignments
+# ==================
+set_global_assignment -name CUT_OFF_READ_DURING_WRITE_PATHS OFF
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 240
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+set_global_assignment -name FAMILY Cyclone
+set_global_assignment -name TOP_LEVEL_ENTITY ep1c12
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EP1C12Q240C8
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name MAX7000B_VCCIO_IOBANK2 3.3V
+set_global_assignment -name MAX7000B_VCCIO_IOBANK1 3.3V
+
+# Timing Analysis Assignments
+# ===========================
+set_global_assignment -name EXCLUDE_TPD_PATHS_LESS_THAN 0.0NS
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name MAX7000_JTAG_USER_CODE FFFF
+
+# Simulator Assignments
+# =====================
+set_global_assignment -name START_TIME "0 ns"
+set_global_assignment -name GLITCH_INTERVAL 0.0
+
+# LogicLock Region Assignments
+# ============================
+set_global_assignment -name LOGICLOCK_INCREMENTAL_COMPILE_ASSIGNMENT OFF
+
+set_global_assignment -name VERILOG_FILE ../ucpu/regalu.v
+set_global_assignment -name VERILOG_FILE ../ucpu/ucpu.v
+set_global_assignment -name VERILOG_FILE ../ucpu/ucu.v
+set_global_assignment -name VERILOG_FILE ep1c12.v

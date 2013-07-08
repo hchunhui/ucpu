@@ -1,0 +1,123 @@
+-- Copyright (C) 1991-2006 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+
+-- Quartus II generated Memory Initialization File (.mif)
+
+WIDTH=24;
+DEPTH=256;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+	000  :   0CF080;
+	001  :   0B8000;
+	002  :   18F101;
+	003  :   39A000;
+	004  :   17FC10;
+	[005..00F]  :   000000;
+	010  :   C45801;
+	011  :   045821;
+	012  :   0E5822;
+	013  :   1DFC80;
+	014  :   D45801;
+	015  :   0FF800;
+	016  :   045820;
+	017  :   245825;
+	018  :   0B8828;
+	019  :   0B5868;
+	01A  :   0B8830;
+	01B  :   0B486C;
+	[01C..01D]  :   1DFC38;
+	01E  :   0B882D;
+	01F  :   0B8860;
+	020  :   C4F801;
+	021  :   F44801;
+	022  :   2EF000;
+	023  :   24F000;
+	024  :   A4E801;
+	025  :   A4F000;
+	026  :   0FF801;
+	027  :   000000;
+	028  :   18F101;
+	029  :   19A000;
+	02A  :   0B6000;
+	02B  :   0FF100;
+	02C  :   84A801;
+	02D  :   18F101;
+	02E  :   04A801;
+	02F  :   000000;
+	030  :   18F101;
+	031  :   19A000;
+	032  :   0A4000;
+	033  :   0B6000;
+	034  :   0FFA01;
+	[035..037]  :   000000;
+	038  :   0B8440;
+	039  :   0B8448;
+	03A  :   0B8450;
+	03B  :   0B8000;
+	03C  :   0FF100;
+	03D  :   19A000;
+	03E  :   086801;
+	03F  :   000000;
+	[040..041]  :   18F801;
+	[042..043]  :   0FF93D;
+	[044..045]  :   18F801;
+	[046..047]  :   0FF93D;
+	048  :   18F801;
+	049  :   0FF93D;
+	04A  :   18F801;
+	04B  :   0FF93D;
+	04C  :   18F801;
+	04D  :   0FF93D;
+	04E  :   18F801;
+	04F  :   0FF93D;
+	[050..053]  :   18F801;
+	[054..057]  :   0FF93D;
+	058  :   2EF000;
+	059  :   1CE000;
+	05A  :   0BC000;
+	05B  :   0FF100;
+	05C  :   08A801;
+	[05D..05F]  :   000000;
+	060  :   18F101;
+	061  :   19A000;
+	062  :   0BC000;
+	063  :   0A8000;
+	064  :   1CF201;
+	065  :   086801;
+	[066..067]  :   000000;
+	068  :   0FF100;
+	069  :   04A801;
+	[06A..06B]  :   000000;
+	06C  :   0A5000;
+	06D  :   0FFA01;
+	[06E..06F]  :   000000;
+	070  :   0A5000;
+	071  :   1CF201;
+	072  :   0FF801;
+	[073..077]  :   000000;
+	078  :   2EF000;
+	079  :   1CE000;
+	07A  :   0BC000;
+	07B  :   0FF100;
+	07C  :   05A801;
+	[07D..07F]  :   000000;
+	080  :   5EE858;
+	081  :   0BC870;
+	082  :   5EE878;
+	083  :   0FF801;
+	[084..0FF]  :   000000;
+END;

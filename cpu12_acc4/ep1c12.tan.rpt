@@ -1,0 +1,1210 @@
+Timing Analyzer report for ep1c12
+Fri Dec 23 22:24:31 2011
+Version 6.0 Build 178 04/27/2006 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'CLK'
+  6. tsu
+  7. tco
+  8. tpd
+  9. th
+ 10. Minimum tco
+ 11. Minimum tpd
+ 12. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                                                                            ;
++------------------------------+-------+---------------+----------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                                       ; To                                                                                                                   ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 11.962 ns                        ; _A[2]                                                      ; bp_r0[4]                                                                                                             ; --         ; WR       ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 33.853 ns                        ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]  ; _D[7]                                                                                                                ; CLK        ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 33.255 ns                        ; _A[5]                                                      ; _D[6]                                                                                                                ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -1.979 ns                        ; MD[7]                                                      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7]                                                           ; --         ; CLK      ; 0            ;
+; Worst-case Minimum tco       ; N/A   ; None          ; 9.207 ns                         ; bp_r0[6]                                                   ; _D[6]                                                                                                                ; WR         ; --       ; 0            ;
+; Worst-case Minimum tpd       ; N/A   ; None          ; 9.528 ns                         ; CLK                                                        ; CK                                                                                                                   ; --         ; --       ; 0            ;
+; Clock Setup: 'CLK'           ; N/A   ; None          ; 29.44 MHz ( period = 33.970 ns ) ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0 ; CLK        ; CLK      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                                            ;                                                                                                                      ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP1C12Q240C8       ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Minimum tpd to report                                 ; 0 ns               ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; On                 ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
+; Default hold multicycle                               ; Same As Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; Off                ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                         ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLK             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; WR              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLK'                                                                                                                                                                                                                                                                                                                                                                             ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                                       ; To                                                                                                                    ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 29.44 MHz ( period = 33.970 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 16.644 ns               ;
+; N/A                                     ; 29.44 MHz ( period = 33.964 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 16.218 ns               ;
+; N/A                                     ; 29.52 MHz ( period = 33.876 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 16.174 ns               ;
+; N/A                                     ; 29.53 MHz ( period = 33.868 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.628 ns               ;
+; N/A                                     ; 29.53 MHz ( period = 33.862 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.202 ns               ;
+; N/A                                     ; 29.61 MHz ( period = 33.774 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.158 ns               ;
+; N/A                                     ; 29.74 MHz ( period = 33.622 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 16.047 ns               ;
+; N/A                                     ; 29.80 MHz ( period = 33.554 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 16.013 ns               ;
+; N/A                                     ; 29.82 MHz ( period = 33.540 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 16.429 ns               ;
+; N/A                                     ; 29.82 MHz ( period = 33.534 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.038 ns               ;
+; N/A                                     ; 29.87 MHz ( period = 33.482 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 16.012 ns               ;
+; N/A                                     ; 29.88 MHz ( period = 33.466 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.004 ns               ;
+; N/A                                     ; 29.89 MHz ( period = 33.460 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 16.424 ns               ;
+; N/A                                     ; 29.91 MHz ( period = 33.438 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.413 ns               ;
+; N/A                                     ; 29.91 MHz ( period = 33.436 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 15.954 ns               ;
+; N/A                                     ; 29.91 MHz ( period = 33.436 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.989 ns               ;
+; N/A                                     ; 29.97 MHz ( period = 33.368 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.955 ns               ;
+; N/A                                     ; 29.97 MHz ( period = 33.366 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.954 ns               ;
+; N/A                                     ; 30.00 MHz ( period = 33.334 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.938 ns               ;
+; N/A                                     ; 30.00 MHz ( period = 33.328 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 16.323 ns               ;
+; N/A                                     ; 30.01 MHz ( period = 33.322 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.897 ns               ;
+; N/A                                     ; 30.09 MHz ( period = 33.234 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.853 ns               ;
+; N/A                                     ; 30.12 MHz ( period = 33.204 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 16.296 ns               ;
+; N/A                                     ; 30.12 MHz ( period = 33.198 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.870 ns               ;
+; N/A                                     ; 30.15 MHz ( period = 33.166 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 15.819 ns               ;
+; N/A                                     ; 30.20 MHz ( period = 33.118 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.830 ns               ;
+; N/A                                     ; 30.20 MHz ( period = 33.110 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.826 ns               ;
+; N/A                                     ; 30.23 MHz ( period = 33.084 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 16.236 ns               ;
+; N/A                                     ; 30.23 MHz ( period = 33.078 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.810 ns               ;
+; N/A                                     ; 30.28 MHz ( period = 33.030 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 16.209 ns               ;
+; N/A                                     ; 30.28 MHz ( period = 33.024 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 16.171 ns               ;
+; N/A                                     ; 30.30 MHz ( period = 33.008 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 16.163 ns               ;
+; N/A                                     ; 30.30 MHz ( period = 33.002 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.737 ns               ;
+; N/A                                     ; 30.31 MHz ( period = 32.990 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.731 ns               ;
+; N/A                                     ; 30.31 MHz ( period = 32.990 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.766 ns               ;
+; N/A                                     ; 30.32 MHz ( period = 32.984 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 16.186 ns               ;
+; N/A                                     ; 30.32 MHz ( period = 32.980 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.761 ns               ;
+; N/A                                     ; 30.32 MHz ( period = 32.978 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.760 ns               ;
+; N/A                                     ; 30.33 MHz ( period = 32.968 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.141 ns               ;
+; N/A                                     ; 30.36 MHz ( period = 32.936 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.739 ns               ;
+; N/A                                     ; 30.37 MHz ( period = 32.922 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.697 ns               ;
+; N/A                                     ; 30.37 MHz ( period = 32.922 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.155 ns               ;
+; N/A                                     ; 30.38 MHz ( period = 32.914 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.693 ns               ;
+; N/A                                     ; 30.40 MHz ( period = 32.898 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 16.108 ns               ;
+; N/A                                     ; 30.40 MHz ( period = 32.890 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.716 ns               ;
+; N/A                                     ; 30.41 MHz ( period = 32.886 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 16.137 ns               ;
+; N/A                                     ; 30.41 MHz ( period = 32.880 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.711 ns               ;
+; N/A                                     ; 30.43 MHz ( period = 32.866 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.704 ns               ;
+; N/A                                     ; 30.43 MHz ( period = 32.860 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 15.666 ns               ;
+; N/A                                     ; 30.49 MHz ( period = 32.798 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.670 ns               ;
+; N/A                                     ; 30.49 MHz ( period = 32.794 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.633 ns               ;
+; N/A                                     ; 30.49 MHz ( period = 32.794 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][3]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 16.126 ns               ;
+; N/A                                     ; 30.50 MHz ( period = 32.792 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.667 ns               ;
+; N/A                                     ; 30.51 MHz ( period = 32.774 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 16.081 ns               ;
+; N/A                                     ; 30.53 MHz ( period = 32.758 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.650 ns               ;
+; N/A                                     ; 30.55 MHz ( period = 32.736 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.639 ns               ;
+; N/A                                     ; 30.60 MHz ( period = 32.684 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.578 ns               ;
+; N/A                                     ; 30.61 MHz ( period = 32.674 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.573 ns               ;
+; N/A                                     ; 30.61 MHz ( period = 32.670 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.606 ns               ;
+; N/A                                     ; 30.61 MHz ( period = 32.668 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.605 ns               ;
+; N/A                                     ; 30.62 MHz ( period = 32.662 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.990 ns               ;
+; N/A                                     ; 30.62 MHz ( period = 32.654 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 16.021 ns               ;
+; N/A                                     ; 30.63 MHz ( period = 32.646 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.594 ns               ;
+; N/A                                     ; 30.64 MHz ( period = 32.638 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.555 ns               ;
+; N/A                                     ; 30.67 MHz ( period = 32.606 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.539 ns               ;
+; N/A                                     ; 30.69 MHz ( period = 32.584 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.949 ns               ;
+; N/A                                     ; 30.70 MHz ( period = 32.578 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.948 ns               ;
+; N/A                                     ; 30.70 MHz ( period = 32.578 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.560 ns               ;
+; N/A                                     ; 30.70 MHz ( period = 32.570 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.521 ns               ;
+; N/A                                     ; 30.70 MHz ( period = 32.568 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.520 ns               ;
+; N/A                                     ; 30.72 MHz ( period = 32.554 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.971 ns               ;
+; N/A                                     ; 30.72 MHz ( period = 32.552 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.547 ns               ;
+; N/A                                     ; 30.72 MHz ( period = 32.550 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.546 ns               ;
+; N/A                                     ; 30.74 MHz ( period = 32.534 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.503 ns               ;
+; N/A                                     ; 30.76 MHz ( period = 32.514 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.951 ns               ;
+; N/A                                     ; 30.78 MHz ( period = 32.484 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.513 ns               ;
+; N/A                                     ; 30.79 MHz ( period = 32.474 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.473 ns               ;
+; N/A                                     ; 30.81 MHz ( period = 32.456 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.922 ns               ;
+; N/A                                     ; 30.82 MHz ( period = 32.450 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.496 ns               ;
+; N/A                                     ; 30.84 MHz ( period = 32.428 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.871 ns               ;
+; N/A                                     ; 30.85 MHz ( period = 32.420 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.832 ns               ;
+; N/A                                     ; 30.85 MHz ( period = 32.410 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.476 ns               ;
+; N/A                                     ; 30.88 MHz ( period = 32.386 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][3]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.922 ns               ;
+; N/A                                     ; 30.88 MHz ( period = 32.382 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.850 ns               ;
+; N/A                                     ; 30.89 MHz ( period = 32.372 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.880 ns               ;
+; N/A                                     ; 30.91 MHz ( period = 32.352 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.447 ns               ;
+; N/A                                     ; 30.91 MHz ( period = 32.350 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.446 ns               ;
+; N/A                                     ; 30.96 MHz ( period = 32.296 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.805 ns               ;
+; N/A                                     ; 30.98 MHz ( period = 32.280 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.411 ns               ;
+; N/A                                     ; 31.00 MHz ( period = 32.258 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.365 ns               ;
+; N/A                                     ; 31.00 MHz ( period = 32.258 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.823 ns               ;
+; N/A                                     ; 31.03 MHz ( period = 32.232 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.775 ns               ;
+; N/A                                     ; 31.04 MHz ( period = 32.218 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.345 ns               ;
+; N/A                                     ; 31.04 MHz ( period = 32.218 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.380 ns               ;
+; N/A                                     ; 31.07 MHz ( period = 32.190 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.366 ns               ;
+; N/A                                     ; 31.07 MHz ( period = 32.182 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.327 ns               ;
+; N/A                                     ; 31.12 MHz ( period = 32.138 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.305 ns               ;
+; N/A                                     ; 31.12 MHz ( period = 32.138 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.763 ns               ;
+; N/A                                     ; 31.12 MHz ( period = 32.136 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.339 ns               ;
+; N/A                                     ; 31.14 MHz ( period = 32.108 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.676 ns               ;
+; N/A                                     ; 31.16 MHz ( period = 32.094 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.318 ns               ;
+; N/A                                     ; 31.18 MHz ( period = 32.076 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.695 ns               ;
+; N/A                                     ; 31.18 MHz ( period = 32.074 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.696 ns               ;
+; N/A                                     ; 31.18 MHz ( period = 32.068 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.270 ns               ;
+; N/A                                     ; 31.19 MHz ( period = 32.062 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.690 ns               ;
+; N/A                                     ; 31.21 MHz ( period = 32.044 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.679 ns               ;
+; N/A                                     ; 31.21 MHz ( period = 32.040 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.679 ns               ;
+; N/A                                     ; 31.21 MHz ( period = 32.038 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.713 ns               ;
+; N/A                                     ; 31.22 MHz ( period = 32.034 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.253 ns               ;
+; N/A                                     ; 31.26 MHz ( period = 31.986 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.650 ns               ;
+; N/A                                     ; 31.27 MHz ( period = 31.980 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.226 ns               ;
+; N/A                                     ; 31.28 MHz ( period = 31.974 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg0 ; CLK        ; CLK      ; None                        ; None                      ; 15.258 ns               ;
+; N/A                                     ; 31.28 MHz ( period = 31.970 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 15.679 ns               ;
+; N/A                                     ; 31.29 MHz ( period = 31.964 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 15.253 ns               ;
+; N/A                                     ; 31.29 MHz ( period = 31.964 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.676 ns               ;
+; N/A                                     ; 31.30 MHz ( period = 31.946 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.209 ns               ;
+; N/A                                     ; 31.31 MHz ( period = 31.940 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.664 ns               ;
+; N/A                                     ; 31.31 MHz ( period = 31.934 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][3]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.661 ns               ;
+; N/A                                     ; 31.31 MHz ( period = 31.934 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.238 ns               ;
+; N/A                                     ; 31.35 MHz ( period = 31.898 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.185 ns               ;
+; N/A                                     ; 31.37 MHz ( period = 31.880 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.562 ns               ;
+; N/A                                     ; 31.37 MHz ( period = 31.876 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 15.209 ns               ;
+; N/A                                     ; 31.37 MHz ( period = 31.874 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.208 ns               ;
+; N/A                                     ; 31.39 MHz ( period = 31.854 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.584 ns               ;
+; N/A                                     ; 31.43 MHz ( period = 31.812 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][3]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.635 ns               ;
+; N/A                                     ; 31.46 MHz ( period = 31.788 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.588 ns               ;
+; N/A                                     ; 31.46 MHz ( period = 31.786 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.515 ns               ;
+; N/A                                     ; 31.47 MHz ( period = 31.776 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.159 ns               ;
+; N/A                                     ; 31.49 MHz ( period = 31.756 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.535 ns               ;
+; N/A                                     ; 31.51 MHz ( period = 31.740 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.106 ns               ;
+; N/A                                     ; 31.53 MHz ( period = 31.718 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.553 ns               ;
+; N/A                                     ; 31.53 MHz ( period = 31.716 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.517 ns               ;
+; N/A                                     ; 31.54 MHz ( period = 31.702 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.087 ns               ;
+; N/A                                     ; 31.57 MHz ( period = 31.672 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.072 ns               ;
+; N/A                                     ; 31.60 MHz ( period = 31.644 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.481 ns               ;
+; N/A                                     ; 31.61 MHz ( period = 31.634 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.053 ns               ;
+; N/A                                     ; 31.64 MHz ( period = 31.610 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.464 ns               ;
+; N/A                                     ; 31.66 MHz ( period = 31.588 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][3]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.488 ns               ;
+; N/A                                     ; 31.68 MHz ( period = 31.568 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.406 ns               ;
+; N/A                                     ; 31.69 MHz ( period = 31.552 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.012 ns               ;
+; N/A                                     ; 31.70 MHz ( period = 31.542 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 15.393 ns               ;
+; N/A                                     ; 31.71 MHz ( period = 31.540 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.006 ns               ;
+; N/A                                     ; 31.71 MHz ( period = 31.540 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 15.464 ns               ;
+; N/A                                     ; 31.71 MHz ( period = 31.536 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.425 ns               ;
+; N/A                                     ; 31.73 MHz ( period = 31.512 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.415 ns               ;
+; N/A                                     ; 31.74 MHz ( period = 31.506 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 14.989 ns               ;
+; N/A                                     ; 31.77 MHz ( period = 31.476 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.432 ns               ;
+; N/A                                     ; 31.78 MHz ( period = 31.470 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.392 ns               ;
+; N/A                                     ; 31.78 MHz ( period = 31.468 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 15.005 ns               ;
+; N/A                                     ; 31.80 MHz ( period = 31.446 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.380 ns               ;
+; N/A                                     ; 31.81 MHz ( period = 31.440 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.377 ns               ;
+; N/A                                     ; 31.81 MHz ( period = 31.436 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 14.989 ns               ;
+; N/A                                     ; 31.85 MHz ( period = 31.400 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 14.971 ns               ;
+; N/A                                     ; 31.86 MHz ( period = 31.390 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 15.389 ns               ;
+; N/A                                     ; 31.87 MHz ( period = 31.380 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.384 ns               ;
+; N/A                                     ; 31.89 MHz ( period = 31.360 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg4 ; CLK        ; CLK      ; None                        ; None                      ; 15.374 ns               ;
+; N/A                                     ; 31.89 MHz ( period = 31.358 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 14.915 ns               ;
+; N/A                                     ; 31.89 MHz ( period = 31.354 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg4 ; CLK        ; CLK      ; None                        ; None                      ; 14.948 ns               ;
+; N/A                                     ; 31.92 MHz ( period = 31.324 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 14.898 ns               ;
+; N/A                                     ; 31.94 MHz ( period = 31.310 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.349 ns               ;
+; N/A                                     ; 31.94 MHz ( period = 31.308 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[14][0] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 15.276 ns               ;
+; N/A                                     ; 31.94 MHz ( period = 31.306 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg2  ; CLK        ; CLK      ; None                        ; None                      ; 15.275 ns               ;
+; N/A                                     ; 31.98 MHz ( period = 31.268 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg4  ; CLK        ; CLK      ; None                        ; None                      ; 15.293 ns               ;
+; N/A                                     ; 31.98 MHz ( period = 31.266 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg4 ; CLK        ; CLK      ; None                        ; None                      ; 14.904 ns               ;
+; N/A                                     ; 31.99 MHz ( period = 31.262 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg4  ; CLK        ; CLK      ; None                        ; None                      ; 14.867 ns               ;
+; N/A                                     ; 32.00 MHz ( period = 31.246 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 14.859 ns               ;
+; N/A                                     ; 32.00 MHz ( period = 31.246 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.245 ns               ;
+; N/A                                     ; 32.01 MHz ( period = 31.238 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg1  ; CLK        ; CLK      ; None                        ; None                      ; 15.278 ns               ;
+; N/A                                     ; 32.01 MHz ( period = 31.236 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg7 ; CLK        ; CLK      ; None                        ; None                      ; 14.889 ns               ;
+; N/A                                     ; 32.02 MHz ( period = 31.232 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg1  ; CLK        ; CLK      ; None                        ; None                      ; 14.852 ns               ;
+; N/A                                     ; 32.03 MHz ( period = 31.220 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[14][0] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.267 ns               ;
+; N/A                                     ; 32.07 MHz ( period = 31.182 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg2 ; CLK        ; CLK      ; None                        ; None                      ; 15.248 ns               ;
+; N/A                                     ; 32.08 MHz ( period = 31.174 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg4  ; CLK        ; CLK      ; None                        ; None                      ; 14.823 ns               ;
+; N/A                                     ; 32.08 MHz ( period = 31.174 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.209 ns               ;
+; N/A                                     ; 32.09 MHz ( period = 31.166 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 15.242 ns               ;
+; N/A                                     ; 32.11 MHz ( period = 31.144 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg1  ; CLK        ; CLK      ; None                        ; None                      ; 14.808 ns               ;
+; N/A                                     ; 32.12 MHz ( period = 31.136 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg6  ; CLK        ; CLK      ; None                        ; None                      ; 14.804 ns               ;
+; N/A                                     ; 32.12 MHz ( period = 31.132 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.188 ns               ;
+; N/A                                     ; 32.13 MHz ( period = 31.128 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.223 ns               ;
+; N/A                                     ; 32.13 MHz ( period = 31.128 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[14][2] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.258 ns               ;
+; N/A                                     ; 32.13 MHz ( period = 31.126 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[12][0] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0  ; CLK        ; CLK      ; None                        ; None                      ; 15.255 ns               ;
+; N/A                                     ; 32.13 MHz ( period = 31.122 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[14][0] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.218 ns               ;
+; N/A                                     ; 32.16 MHz ( period = 31.094 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 15.206 ns               ;
+; N/A                                     ; 32.22 MHz ( period = 31.032 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][5]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.245 ns               ;
+; N/A                                     ; 32.22 MHz ( period = 31.032 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg6 ; CLK        ; CLK      ; None                        ; None                      ; 15.173 ns               ;
+; N/A                                     ; 32.23 MHz ( period = 31.026 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][3]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.242 ns               ;
+; N/A                                     ; 32.23 MHz ( period = 31.024 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 15.206 ns               ;
+; N/A                                     ; 32.23 MHz ( period = 31.024 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[12][0] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.239 ns               ;
+; N/A                                     ; 32.24 MHz ( period = 31.022 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg4 ; CLK        ; CLK      ; None                        ; None                      ; 14.782 ns               ;
+; N/A                                     ; 32.25 MHz ( period = 31.012 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[1]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg1 ; CLK        ; CLK      ; None                        ; None                      ; 14.777 ns               ;
+; N/A                                     ; 32.26 MHz ( period = 31.000 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[5][3]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 15.194 ns               ;
+; N/A                                     ; 32.26 MHz ( period = 30.994 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.119 ns               ;
+; N/A                                     ; 32.30 MHz ( period = 30.964 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg7  ; CLK        ; CLK      ; None                        ; None                      ; 14.718 ns               ;
+; N/A                                     ; 32.30 MHz ( period = 30.962 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg3 ; CLK        ; CLK      ; None                        ; None                      ; 15.138 ns               ;
+; N/A                                     ; 32.31 MHz ( period = 30.954 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[2]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg4 ; CLK        ; CLK      ; None                        ; None                      ; 14.748 ns               ;
+; N/A                                     ; 32.33 MHz ( period = 30.930 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_bsrc[0]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg3  ; CLK        ; CLK      ; None                        ; None                      ; 14.701 ns               ;
+; N/A                                     ; 32.33 MHz ( period = 30.930 ns )                    ; ucpu:mycpu|ucu:ucu1|alu_asrc[3]                            ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg4  ; CLK        ; CLK      ; None                        ; None                      ; 14.701 ns               ;
+; N/A                                     ; 32.33 MHz ( period = 30.930 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg4 ; CLK        ; CLK      ; None                        ; None                      ; 15.159 ns               ;
+; N/A                                     ; 32.33 MHz ( period = 30.928 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][2]  ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg5  ; CLK        ; CLK      ; None                        ; None                      ; 15.123 ns               ;
+; N/A                                     ; 32.33 MHz ( period = 30.928 ns )                    ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[13][3] ; ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a15~porta_address_reg5 ; CLK        ; CLK      ; None                        ; None                      ; 15.158 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                            ;                                                                                                                       ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                ;
++-------+--------------+------------+--------+------------------------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From   ; To                                                         ; To Clock ;
++-------+--------------+------------+--------+------------------------------------------------------------+----------+
+; N/A   ; None         ; 11.962 ns  ; _A[2]  ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 11.926 ns  ; _A[2]  ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 11.926 ns  ; _A[2]  ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 11.926 ns  ; _A[2]  ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 11.603 ns  ; _A[2]  ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 11.603 ns  ; _A[2]  ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 11.603 ns  ; _A[2]  ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 11.603 ns  ; _A[2]  ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 11.581 ns  ; _A[3]  ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 11.545 ns  ; _A[3]  ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 11.545 ns  ; _A[3]  ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 11.545 ns  ; _A[3]  ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 11.222 ns  ; _A[3]  ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 11.222 ns  ; _A[3]  ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 11.222 ns  ; _A[3]  ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 11.222 ns  ; _A[3]  ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 10.139 ns  ; _A[0]  ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 10.103 ns  ; _A[0]  ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 10.103 ns  ; _A[0]  ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 10.103 ns  ; _A[0]  ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 9.780 ns   ; _A[0]  ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 9.780 ns   ; _A[0]  ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 9.780 ns   ; _A[0]  ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 9.780 ns   ; _A[0]  ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 9.477 ns   ; _A[1]  ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 9.441 ns   ; _A[1]  ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 9.441 ns   ; _A[1]  ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 9.441 ns   ; _A[1]  ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 9.388 ns   ; _CS    ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 9.352 ns   ; _CS    ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 9.352 ns   ; _CS    ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 9.352 ns   ; _CS    ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 9.118 ns   ; _A[1]  ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 9.118 ns   ; _A[1]  ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 9.118 ns   ; _A[1]  ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 9.118 ns   ; _A[1]  ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 9.029 ns   ; _CS    ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 9.029 ns   ; _CS    ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 9.029 ns   ; _CS    ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 9.029 ns   ; _CS    ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 9.002 ns   ; _A[10] ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 8.966 ns   ; _A[10] ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 8.966 ns   ; _A[10] ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 8.966 ns   ; _A[10] ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 8.932 ns   ; _0x6   ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 8.896 ns   ; _0x6   ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 8.896 ns   ; _0x6   ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 8.896 ns   ; _0x6   ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 8.812 ns   ; _A[11] ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 8.776 ns   ; _A[11] ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 8.776 ns   ; _A[11] ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 8.776 ns   ; _A[11] ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 8.643 ns   ; _A[10] ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 8.643 ns   ; _A[10] ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 8.643 ns   ; _A[10] ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 8.643 ns   ; _A[10] ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 8.573 ns   ; _0x6   ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 8.573 ns   ; _0x6   ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 8.573 ns   ; _0x6   ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 8.573 ns   ; _0x6   ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 8.453 ns   ; _A[11] ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 8.453 ns   ; _A[11] ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 8.453 ns   ; _A[11] ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 8.453 ns   ; _A[11] ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 5.618 ns   ; _D[4]  ; bp_r0[4]                                                   ; WR       ;
+; N/A   ; None         ; 5.574 ns   ; _D[2]  ; bp_r0[2]                                                   ; WR       ;
+; N/A   ; None         ; 5.559 ns   ; _D[3]  ; bp_r0[3]                                                   ; WR       ;
+; N/A   ; None         ; 5.529 ns   ; _D[7]  ; bp_r0[7]                                                   ; WR       ;
+; N/A   ; None         ; 5.254 ns   ; _D[0]  ; bp_r0[0]                                                   ; WR       ;
+; N/A   ; None         ; 5.204 ns   ; _D[6]  ; bp_r0[6]                                                   ; WR       ;
+; N/A   ; None         ; 5.202 ns   ; _D[1]  ; bp_r0[1]                                                   ; WR       ;
+; N/A   ; None         ; 5.164 ns   ; _D[5]  ; bp_r0[5]                                                   ; WR       ;
+; N/A   ; None         ; 3.169 ns   ; MD[0]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][0] ; CLK      ;
+; N/A   ; None         ; 3.034 ns   ; MD[4]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][4] ; CLK      ;
+; N/A   ; None         ; 2.778 ns   ; MD[2]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][2] ; CLK      ;
+; N/A   ; None         ; 2.545 ns   ; MD[3]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][3] ; CLK      ;
+; N/A   ; None         ; 2.371 ns   ; MD[1]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][1] ; CLK      ;
+; N/A   ; None         ; 2.299 ns   ; MD[6]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][6] ; CLK      ;
+; N/A   ; None         ; 2.185 ns   ; MD[5]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][5] ; CLK      ;
+; N/A   ; None         ; 2.031 ns   ; MD[7]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7] ; CLK      ;
++-------+--------------+------------+--------+------------------------------------------------------------+----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                   ;
++-------+--------------+------------+------------------------------------------------------------+---------+------------+
+; Slack ; Required tco ; Actual tco ; From                                                       ; To      ; From Clock ;
++-------+--------------+------------+------------------------------------------------------------+---------+------------+
+; N/A   ; None         ; 33.853 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 32.663 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][5]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 32.370 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][1]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 32.025 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][4]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 31.931 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][3]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 31.725 ns  ; wc                                                         ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 31.569 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][6]  ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 31.274 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][6]  ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 30.977 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][0]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 30.809 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 30.745 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][2]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 30.523 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][6]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 30.505 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 30.439 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 30.199 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][1]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 29.936 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][0]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 29.911 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][1]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 29.872 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][0]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 29.554 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][10] ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 28.971 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][8]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 28.766 ns  ; ucpu:mycpu|ucu:ucu1|alu_f[1]                               ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 28.167 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][9]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 28.129 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][5]  ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 27.347 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][1]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 27.193 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][6]  ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 26.793 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][0]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 26.793 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][7]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 26.727 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][5]  ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 26.122 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][7]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 25.974 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][5]  ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 25.507 ns  ; bp_r0[4]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 25.177 ns  ; bp_r0[2]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 25.070 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][1]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 25.063 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][5]  ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 24.739 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][6]  ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 24.701 ns  ; bp_r0[7]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 24.616 ns  ; bp_r0[3]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 24.530 ns  ; ucpu:mycpu|ucu:ucu1|alu_f[0]                               ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 24.517 ns  ; bp_r0[1]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 24.449 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][7]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 24.349 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][7]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 24.316 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 24.020 ns  ; bp_r0[0]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 23.936 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][0]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 23.669 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][0]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 23.556 ns  ; bp_r0[6]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 23.363 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][4]  ; _D[4]   ; CLK        ;
+; N/A   ; None         ; 23.319 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][8]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 23.299 ns  ; bp_r0[5]                                                   ; _D[7]   ; WR         ;
+; N/A   ; None         ; 22.877 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][5]  ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 22.796 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][4]  ; _D[4]   ; CLK        ;
+; N/A   ; None         ; 22.770 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][4]  ; _D[4]   ; CLK        ;
+; N/A   ; None         ; 22.541 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 22.504 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][7]  ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 22.382 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][8]  ; _D[0]   ; CLK        ;
+; N/A   ; None         ; 21.909 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][5]  ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 21.869 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][4]  ; _D[4]   ; CLK        ;
+; N/A   ; None         ; 21.823 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][2]  ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 21.321 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][3]  ; _D[3]   ; CLK        ;
+; N/A   ; None         ; 21.272 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 21.157 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][3]  ; _D[3]   ; CLK        ;
+; N/A   ; None         ; 20.505 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][6]  ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 20.499 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][10] ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 20.367 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][6]  ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 20.366 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][10] ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 20.121 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][2]  ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 20.104 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][9]  ; _D[1]   ; CLK        ;
+; N/A   ; None         ; 20.082 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][5]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 20.043 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][2]  ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 19.789 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][1]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 19.681 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; _D[3]   ; CLK        ;
+; N/A   ; None         ; 19.543 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 19.444 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][4]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 19.350 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][3]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 19.330 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; _D[4]   ; CLK        ;
+; N/A   ; None         ; 19.237 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][3]  ; _D[3]   ; CLK        ;
+; N/A   ; None         ; 19.219 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][2]  ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 19.184 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][14] ; _D[6]   ; CLK        ;
+; N/A   ; None         ; 18.913 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][4]  ; _D[4]   ; CLK        ;
+; N/A   ; None         ; 18.820 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][13] ; _D[5]   ; CLK        ;
+; N/A   ; None         ; 18.775 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][3]  ; _D[3]   ; CLK        ;
+; N/A   ; None         ; 18.757 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][3]  ; _D[3]   ; CLK        ;
+; N/A   ; None         ; 18.396 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][0]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 18.194 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][15] ; _D[7]   ; CLK        ;
+; N/A   ; None         ; 18.164 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][2]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 18.086 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_wc                            ; C_BE[2] ; CLK        ;
+; N/A   ; None         ; 18.040 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][3]  ; _D[3]   ; CLK        ;
+; N/A   ; None         ; 17.942 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][6]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 17.465 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][2]  ; _D[2]   ; CLK        ;
+; N/A   ; None         ; 17.001 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[0]   ; CLK        ;
+; N/A   ; None         ; 16.973 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][10] ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 16.953 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; C_BE[3] ; CLK        ;
+; N/A   ; None         ; 16.629 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[3]   ; CLK        ;
+; N/A   ; None         ; 16.629 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[2]   ; CLK        ;
+; N/A   ; None         ; 16.629 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[1]   ; CLK        ;
+; N/A   ; None         ; 16.624 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[4]   ; CLK        ;
+; N/A   ; None         ; 16.624 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[5]   ; CLK        ;
+; N/A   ; None         ; 16.612 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[6]   ; CLK        ;
+; N/A   ; None         ; 16.612 ns  ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[7]   ; CLK        ;
+; N/A   ; None         ; 16.390 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][8]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 16.066 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][4]  ; _D[4]   ; CLK        ;
+; N/A   ; None         ; 15.838 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][1] ; A_[1]   ; CLK        ;
+; N/A   ; None         ; 15.784 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][0] ; A_[0]   ; CLK        ;
+; N/A   ; None         ; 15.586 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][9]  ; PC_BKT  ; CLK        ;
+; N/A   ; None         ; 15.476 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][2] ; A_[2]   ; CLK        ;
+; N/A   ; None         ; 15.382 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][0] ; MD[0]   ; CLK        ;
+; N/A   ; None         ; 15.341 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][4] ; A_[4]   ; CLK        ;
+; N/A   ; None         ; 15.105 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][5] ; MD[5]   ; CLK        ;
+; N/A   ; None         ; 15.053 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7] ; MD[7]   ; CLK        ;
+; N/A   ; None         ; 15.050 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][6] ; MD[6]   ; CLK        ;
+; N/A   ; None         ; 15.043 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][2] ; MD[2]   ; CLK        ;
+; N/A   ; None         ; 15.041 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][4] ; MD[4]   ; CLK        ;
+; N/A   ; None         ; 15.026 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][1] ; MD[1]   ; CLK        ;
+; N/A   ; None         ; 15.017 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][3] ; MD[3]   ; CLK        ;
+; N/A   ; None         ; 14.996 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][3] ; A_[3]   ; CLK        ;
+; N/A   ; None         ; 14.291 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][5] ; A_[5]   ; CLK        ;
+; N/A   ; None         ; 14.288 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][6] ; A_[6]   ; CLK        ;
+; N/A   ; None         ; 13.625 ns  ; bp_r0[3]                                                   ; _D[3]   ; WR         ;
+; N/A   ; None         ; 13.243 ns  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][7] ; A_[7]   ; CLK        ;
+; N/A   ; None         ; 12.926 ns  ; bp_r0[4]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 12.721 ns  ; bp_r0[4]                                                   ; _D[4]   ; WR         ;
+; N/A   ; None         ; 12.596 ns  ; bp_r0[2]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 12.374 ns  ; bp_r0[2]                                                   ; _D[2]   ; WR         ;
+; N/A   ; None         ; 12.120 ns  ; bp_r0[7]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 12.035 ns  ; bp_r0[3]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 11.936 ns  ; bp_r0[1]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 11.439 ns  ; bp_r0[0]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 11.370 ns  ; bp_r0[0]                                                   ; _D[0]   ; WR         ;
+; N/A   ; None         ; 10.975 ns  ; bp_r0[6]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 10.718 ns  ; bp_r0[5]                                                   ; PC_BKT  ; WR         ;
+; N/A   ; None         ; 10.700 ns  ; bp_r0[1]                                                   ; _D[1]   ; WR         ;
+; N/A   ; None         ; 9.705 ns   ; bp_r0[5]                                                   ; _D[5]   ; WR         ;
+; N/A   ; None         ; 9.207 ns   ; bp_r0[6]                                                   ; _D[6]   ; WR         ;
++-------+--------------+------------+------------------------------------------------------------+---------+------------+
+
+
++----------------------------------------------------------------+
+; tpd                                                            ;
++-------+-------------------+-----------------+--------+---------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From   ; To      ;
++-------+-------------------+-----------------+--------+---------+
+; N/A   ; None              ; 33.255 ns       ; _A[5]  ; _D[6]   ;
+; N/A   ; None              ; 32.309 ns       ; _A[2]  ; _D[6]   ;
+; N/A   ; None              ; 29.967 ns       ; _A[2]  ; _D[1]   ;
+; N/A   ; None              ; 29.671 ns       ; _A[2]  ; _D[0]   ;
+; N/A   ; None              ; 29.462 ns       ; _A[5]  ; _D[1]   ;
+; N/A   ; None              ; 29.441 ns       ; _A[5]  ; _D[0]   ;
+; N/A   ; None              ; 29.403 ns       ; _A[3]  ; _D[1]   ;
+; N/A   ; None              ; 29.159 ns       ; _A[4]  ; _D[1]   ;
+; N/A   ; None              ; 29.107 ns       ; _A[3]  ; _D[0]   ;
+; N/A   ; None              ; 28.863 ns       ; _A[4]  ; _D[0]   ;
+; N/A   ; None              ; 27.249 ns       ; _A[2]  ; _D[5]   ;
+; N/A   ; None              ; 26.685 ns       ; _A[3]  ; _D[5]   ;
+; N/A   ; None              ; 26.597 ns       ; _A[2]  ; _D[7]   ;
+; N/A   ; None              ; 26.441 ns       ; _A[4]  ; _D[5]   ;
+; N/A   ; None              ; 26.111 ns       ; _A[5]  ; _D[5]   ;
+; N/A   ; None              ; 26.033 ns       ; _A[3]  ; _D[7]   ;
+; N/A   ; None              ; 25.983 ns       ; _A[5]  ; _D[7]   ;
+; N/A   ; None              ; 25.789 ns       ; _A[4]  ; _D[7]   ;
+; N/A   ; None              ; 25.692 ns       ; _A[3]  ; _D[6]   ;
+; N/A   ; None              ; 25.448 ns       ; _A[4]  ; _D[6]   ;
+; N/A   ; None              ; 24.780 ns       ; MD[4]  ; _D[4]   ;
+; N/A   ; None              ; 23.536 ns       ; _A[5]  ; _D[4]   ;
+; N/A   ; None              ; 23.502 ns       ; MD[3]  ; _D[3]   ;
+; N/A   ; None              ; 23.408 ns       ; _A[3]  ; _D[4]   ;
+; N/A   ; None              ; 23.376 ns       ; A_[4]  ; _D[4]   ;
+; N/A   ; None              ; 23.318 ns       ; _A[2]  ; _D[4]   ;
+; N/A   ; None              ; 23.309 ns       ; _A[2]  ; _D[2]   ;
+; N/A   ; None              ; 23.216 ns       ; _A[0]  ; _D[0]   ;
+; N/A   ; None              ; 22.928 ns       ; _A[3]  ; _D[2]   ;
+; N/A   ; None              ; 22.806 ns       ; _A[5]  ; _D[2]   ;
+; N/A   ; None              ; 22.574 ns       ; _A[4]  ; _D[3]   ;
+; N/A   ; None              ; 22.436 ns       ; A_[3]  ; _D[3]   ;
+; N/A   ; None              ; 22.429 ns       ; _A[4]  ; _D[4]   ;
+; N/A   ; None              ; 22.379 ns       ; _A[0]  ; _D[5]   ;
+; N/A   ; None              ; 22.306 ns       ; _A[4]  ; _D[2]   ;
+; N/A   ; None              ; 22.166 ns       ; _A[0]  ; _D[6]   ;
+; N/A   ; None              ; 22.079 ns       ; _A[3]  ; _D[3]   ;
+; N/A   ; None              ; 21.884 ns       ; _A[5]  ; _D[3]   ;
+; N/A   ; None              ; 21.663 ns       ; A_[8]  ; _D[0]   ;
+; N/A   ; None              ; 21.599 ns       ; _A[0]  ; _D[1]   ;
+; N/A   ; None              ; 21.573 ns       ; _A[0]  ; _D[7]   ;
+; N/A   ; None              ; 21.548 ns       ; _A[2]  ; _D[3]   ;
+; N/A   ; None              ; 20.556 ns       ; _A[0]  ; _D[2]   ;
+; N/A   ; None              ; 19.773 ns       ; _A[1]  ; _D[4]   ;
+; N/A   ; None              ; 19.687 ns       ; _A[1]  ; _D[0]   ;
+; N/A   ; None              ; 19.584 ns       ; _A[1]  ; _D[1]   ;
+; N/A   ; None              ; 19.517 ns       ; MD[2]  ; _D[2]   ;
+; N/A   ; None              ; 19.509 ns       ; A_[2]  ; _D[2]   ;
+; N/A   ; None              ; 19.494 ns       ; _A[1]  ; _D[3]   ;
+; N/A   ; None              ; 19.445 ns       ; A_[10] ; _D[2]   ;
+; N/A   ; None              ; 19.390 ns       ; _A[0]  ; _D[3]   ;
+; N/A   ; None              ; 19.357 ns       ; A_[9]  ; _D[1]   ;
+; N/A   ; None              ; 19.355 ns       ; _A[0]  ; _D[4]   ;
+; N/A   ; None              ; 18.889 ns       ; RUN    ; C_BE[2] ;
+; N/A   ; None              ; 18.883 ns       ; A_[5]  ; _D[5]   ;
+; N/A   ; None              ; 18.599 ns       ; RUN    ; C_BE[3] ;
+; N/A   ; None              ; 18.349 ns       ; MD[0]  ; _D[0]   ;
+; N/A   ; None              ; 18.328 ns       ; A_[6]  ; _D[6]   ;
+; N/A   ; None              ; 18.125 ns       ; _A[1]  ; _D[2]   ;
+; N/A   ; None              ; 17.874 ns       ; MD[6]  ; _D[6]   ;
+; N/A   ; None              ; 17.853 ns       ; MD[7]  ; _D[7]   ;
+; N/A   ; None              ; 17.801 ns       ; MD[5]  ; _D[5]   ;
+; N/A   ; None              ; 17.478 ns       ; A_[0]  ; _D[0]   ;
+; N/A   ; None              ; 17.447 ns       ; A_[1]  ; _D[1]   ;
+; N/A   ; None              ; 17.390 ns       ; A_[7]  ; _D[7]   ;
+; N/A   ; None              ; 17.363 ns       ; MD[1]  ; _D[1]   ;
+; N/A   ; None              ; 16.958 ns       ; _A[6]  ; _D[5]   ;
+; N/A   ; None              ; 16.921 ns       ; _A[6]  ; _D[6]   ;
+; N/A   ; None              ; 16.914 ns       ; _A[6]  ; _D[7]   ;
+; N/A   ; None              ; 16.758 ns       ; _A[7]  ; _D[5]   ;
+; N/A   ; None              ; 16.721 ns       ; _A[7]  ; _D[6]   ;
+; N/A   ; None              ; 16.714 ns       ; _A[7]  ; _D[7]   ;
+; N/A   ; None              ; 16.374 ns       ; _CS    ; _D[4]   ;
+; N/A   ; None              ; 16.374 ns       ; RUN    ; A_[0]   ;
+; N/A   ; None              ; 16.374 ns       ; _CS    ; _D[5]   ;
+; N/A   ; None              ; 16.374 ns       ; _CS    ; _D[3]   ;
+; N/A   ; None              ; 16.366 ns       ; _CS    ; _D[6]   ;
+; N/A   ; None              ; 16.366 ns       ; _CS    ; _D[7]   ;
+; N/A   ; None              ; 16.351 ns       ; RUN    ; A_[23]  ;
+; N/A   ; None              ; 16.077 ns       ; RUN    ; A_[3]   ;
+; N/A   ; None              ; 16.077 ns       ; RUN    ; A_[2]   ;
+; N/A   ; None              ; 16.077 ns       ; _A[6]  ; _D[0]   ;
+; N/A   ; None              ; 16.066 ns       ; _A[6]  ; _D[1]   ;
+; N/A   ; None              ; 16.064 ns       ; RUN    ; A_[1]   ;
+; N/A   ; None              ; 15.988 ns       ; _A[10] ; _D[4]   ;
+; N/A   ; None              ; 15.988 ns       ; _A[10] ; _D[5]   ;
+; N/A   ; None              ; 15.988 ns       ; _A[10] ; _D[3]   ;
+; N/A   ; None              ; 15.980 ns       ; _A[10] ; _D[6]   ;
+; N/A   ; None              ; 15.980 ns       ; _A[10] ; _D[7]   ;
+; N/A   ; None              ; 15.918 ns       ; _0x6   ; _D[4]   ;
+; N/A   ; None              ; 15.918 ns       ; _0x6   ; _D[5]   ;
+; N/A   ; None              ; 15.918 ns       ; _0x6   ; _D[3]   ;
+; N/A   ; None              ; 15.910 ns       ; _0x6   ; _D[6]   ;
+; N/A   ; None              ; 15.910 ns       ; _0x6   ; _D[7]   ;
+; N/A   ; None              ; 15.905 ns       ; _CS    ; _D[2]   ;
+; N/A   ; None              ; 15.905 ns       ; _CS    ; _D[1]   ;
+; N/A   ; None              ; 15.905 ns       ; _CS    ; _D[0]   ;
+; N/A   ; None              ; 15.898 ns       ; RUN    ; A_[22]  ;
+; N/A   ; None              ; 15.877 ns       ; _A[7]  ; _D[0]   ;
+; N/A   ; None              ; 15.866 ns       ; _A[7]  ; _D[1]   ;
+; N/A   ; None              ; 15.704 ns       ; RUN    ; A_[4]   ;
+; N/A   ; None              ; 15.679 ns       ; RUN    ; A_[5]   ;
+; N/A   ; None              ; 15.590 ns       ; _A[1]  ; _D[5]   ;
+; N/A   ; None              ; 15.553 ns       ; _A[1]  ; _D[6]   ;
+; N/A   ; None              ; 15.546 ns       ; _A[1]  ; _D[7]   ;
+; N/A   ; None              ; 15.519 ns       ; _A[10] ; _D[2]   ;
+; N/A   ; None              ; 15.519 ns       ; _A[10] ; _D[1]   ;
+; N/A   ; None              ; 15.519 ns       ; _A[10] ; _D[0]   ;
+; N/A   ; None              ; 15.449 ns       ; _0x6   ; _D[2]   ;
+; N/A   ; None              ; 15.449 ns       ; _0x6   ; _D[1]   ;
+; N/A   ; None              ; 15.449 ns       ; _0x6   ; _D[0]   ;
+; N/A   ; None              ; 15.416 ns       ; RUN    ; A_[21]  ;
+; N/A   ; None              ; 15.416 ns       ; RUN    ; A_[20]  ;
+; N/A   ; None              ; 15.371 ns       ; RUN    ; A_[6]   ;
+; N/A   ; None              ; 15.187 ns       ; _A[6]  ; _D[2]   ;
+; N/A   ; None              ; 15.011 ns       ; RUN    ; A_[19]  ;
+; N/A   ; None              ; 14.987 ns       ; _A[7]  ; _D[2]   ;
+; N/A   ; None              ; 14.640 ns       ; RUN    ; A_[7]   ;
+; N/A   ; None              ; 14.546 ns       ; RUN    ; A_[9]   ;
+; N/A   ; None              ; 14.546 ns       ; RUN    ; A_[8]   ;
+; N/A   ; None              ; 14.405 ns       ; _A[6]  ; _D[3]   ;
+; N/A   ; None              ; 14.402 ns       ; _A[6]  ; _D[4]   ;
+; N/A   ; None              ; 14.208 ns       ; RUN    ; A_[10]  ;
+; N/A   ; None              ; 14.204 ns       ; _A[7]  ; _D[3]   ;
+; N/A   ; None              ; 14.200 ns       ; _A[7]  ; _D[4]   ;
+; N/A   ; None              ; 13.892 ns       ; A_[10] ; A_31    ;
+; N/A   ; None              ; 13.423 ns       ; RUN    ; A_[18]  ;
+; N/A   ; None              ; 13.423 ns       ; RUN    ; A_[17]  ;
+; N/A   ; None              ; 13.423 ns       ; RUN    ; A_[16]  ;
+; N/A   ; None              ; 13.333 ns       ; RUN    ; A_[15]  ;
+; N/A   ; None              ; 13.096 ns       ; RUN    ; A_[11]  ;
+; N/A   ; None              ; 12.748 ns       ; RUN    ; A_[14]  ;
+; N/A   ; None              ; 12.748 ns       ; RUN    ; A_[13]  ;
+; N/A   ; None              ; 12.736 ns       ; RUN    ; A_[12]  ;
+; N/A   ; None              ; 11.772 ns       ; _A[11] ; _D[4]   ;
+; N/A   ; None              ; 11.772 ns       ; _A[11] ; _D[5]   ;
+; N/A   ; None              ; 11.772 ns       ; _A[11] ; _D[3]   ;
+; N/A   ; None              ; 11.764 ns       ; _A[11] ; _D[6]   ;
+; N/A   ; None              ; 11.764 ns       ; _A[11] ; _D[7]   ;
+; N/A   ; None              ; 11.303 ns       ; _A[11] ; _D[2]   ;
+; N/A   ; None              ; 11.303 ns       ; _A[11] ; _D[1]   ;
+; N/A   ; None              ; 11.303 ns       ; _A[11] ; _D[0]   ;
+; N/A   ; None              ; 11.247 ns       ; _RD    ; _D[4]   ;
+; N/A   ; None              ; 11.247 ns       ; _RD    ; _D[5]   ;
+; N/A   ; None              ; 11.247 ns       ; _RD    ; _D[3]   ;
+; N/A   ; None              ; 11.239 ns       ; _RD    ; _D[6]   ;
+; N/A   ; None              ; 11.239 ns       ; _RD    ; _D[7]   ;
+; N/A   ; None              ; 10.778 ns       ; _RD    ; _D[2]   ;
+; N/A   ; None              ; 10.778 ns       ; _RD    ; _D[1]   ;
+; N/A   ; None              ; 10.778 ns       ; _RD    ; _D[0]   ;
+; N/A   ; None              ; 9.528 ns        ; CLK    ; CK      ;
++-------+-------------------+-----------------+--------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                        ;
++---------------+-------------+------------+--------+------------------------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th  ; From   ; To                                                         ; To Clock ;
++---------------+-------------+------------+--------+------------------------------------------------------------+----------+
+; N/A           ; None        ; -1.979 ns  ; MD[7]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7] ; CLK      ;
+; N/A           ; None        ; -2.133 ns  ; MD[5]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][5] ; CLK      ;
+; N/A           ; None        ; -2.247 ns  ; MD[6]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][6] ; CLK      ;
+; N/A           ; None        ; -2.319 ns  ; MD[1]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][1] ; CLK      ;
+; N/A           ; None        ; -2.493 ns  ; MD[3]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][3] ; CLK      ;
+; N/A           ; None        ; -2.726 ns  ; MD[2]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][2] ; CLK      ;
+; N/A           ; None        ; -2.982 ns  ; MD[4]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][4] ; CLK      ;
+; N/A           ; None        ; -3.117 ns  ; MD[0]  ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][0] ; CLK      ;
+; N/A           ; None        ; -5.112 ns  ; _D[5]  ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -5.150 ns  ; _D[1]  ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -5.152 ns  ; _D[6]  ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -5.202 ns  ; _D[0]  ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -5.477 ns  ; _D[7]  ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -5.507 ns  ; _D[3]  ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -5.522 ns  ; _D[2]  ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -5.566 ns  ; _D[4]  ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -8.401 ns  ; _A[11] ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -8.401 ns  ; _A[11] ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -8.401 ns  ; _A[11] ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -8.401 ns  ; _A[11] ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -8.521 ns  ; _0x6   ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -8.521 ns  ; _0x6   ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -8.521 ns  ; _0x6   ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -8.521 ns  ; _0x6   ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -8.591 ns  ; _A[10] ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -8.591 ns  ; _A[10] ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -8.591 ns  ; _A[10] ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -8.591 ns  ; _A[10] ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -8.724 ns  ; _A[11] ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -8.724 ns  ; _A[11] ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -8.724 ns  ; _A[11] ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -8.760 ns  ; _A[11] ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -8.844 ns  ; _0x6   ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -8.844 ns  ; _0x6   ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -8.844 ns  ; _0x6   ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -8.880 ns  ; _0x6   ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -8.914 ns  ; _A[10] ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -8.914 ns  ; _A[10] ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -8.914 ns  ; _A[10] ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -8.950 ns  ; _A[10] ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -8.977 ns  ; _CS    ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -8.977 ns  ; _CS    ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -8.977 ns  ; _CS    ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -8.977 ns  ; _CS    ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -9.066 ns  ; _A[1]  ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -9.066 ns  ; _A[1]  ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -9.066 ns  ; _A[1]  ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -9.066 ns  ; _A[1]  ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -9.300 ns  ; _CS    ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -9.300 ns  ; _CS    ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -9.300 ns  ; _CS    ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -9.336 ns  ; _CS    ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -9.389 ns  ; _A[1]  ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -9.389 ns  ; _A[1]  ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -9.389 ns  ; _A[1]  ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -9.425 ns  ; _A[1]  ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -9.728 ns  ; _A[0]  ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -9.728 ns  ; _A[0]  ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -9.728 ns  ; _A[0]  ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -9.728 ns  ; _A[0]  ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -10.051 ns ; _A[0]  ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -10.051 ns ; _A[0]  ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -10.051 ns ; _A[0]  ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -10.087 ns ; _A[0]  ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -11.170 ns ; _A[3]  ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -11.170 ns ; _A[3]  ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -11.170 ns ; _A[3]  ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -11.170 ns ; _A[3]  ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -11.493 ns ; _A[3]  ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -11.493 ns ; _A[3]  ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -11.493 ns ; _A[3]  ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -11.529 ns ; _A[3]  ; bp_r0[4]                                                   ; WR       ;
+; N/A           ; None        ; -11.551 ns ; _A[2]  ; bp_r0[1]                                                   ; WR       ;
+; N/A           ; None        ; -11.551 ns ; _A[2]  ; bp_r0[0]                                                   ; WR       ;
+; N/A           ; None        ; -11.551 ns ; _A[2]  ; bp_r0[2]                                                   ; WR       ;
+; N/A           ; None        ; -11.551 ns ; _A[2]  ; bp_r0[3]                                                   ; WR       ;
+; N/A           ; None        ; -11.874 ns ; _A[2]  ; bp_r0[7]                                                   ; WR       ;
+; N/A           ; None        ; -11.874 ns ; _A[2]  ; bp_r0[6]                                                   ; WR       ;
+; N/A           ; None        ; -11.874 ns ; _A[2]  ; bp_r0[5]                                                   ; WR       ;
+; N/A           ; None        ; -11.910 ns ; _A[2]  ; bp_r0[4]                                                   ; WR       ;
++---------------+-------------+------------+--------+------------------------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum tco                                                                                                                           ;
++---------------+------------------+----------------+------------------------------------------------------------+---------+------------+
+; Minimum Slack ; Required Min tco ; Actual Min tco ; From                                                       ; To      ; From Clock ;
++---------------+------------------+----------------+------------------------------------------------------------+---------+------------+
+; N/A           ; None             ; 9.207 ns       ; bp_r0[6]                                                   ; _D[6]   ; WR         ;
+; N/A           ; None             ; 9.705 ns       ; bp_r0[5]                                                   ; _D[5]   ; WR         ;
+; N/A           ; None             ; 9.940 ns       ; bp_r0[7]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 10.700 ns      ; bp_r0[1]                                                   ; _D[1]   ; WR         ;
+; N/A           ; None             ; 10.718 ns      ; bp_r0[5]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 10.975 ns      ; bp_r0[6]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 11.370 ns      ; bp_r0[0]                                                   ; _D[0]   ; WR         ;
+; N/A           ; None             ; 11.439 ns      ; bp_r0[0]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 11.936 ns      ; bp_r0[1]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 12.035 ns      ; bp_r0[3]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 12.120 ns      ; bp_r0[7]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 12.374 ns      ; bp_r0[2]                                                   ; _D[2]   ; WR         ;
+; N/A           ; None             ; 12.596 ns      ; bp_r0[2]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 12.721 ns      ; bp_r0[4]                                                   ; _D[4]   ; WR         ;
+; N/A           ; None             ; 12.926 ns      ; bp_r0[4]                                                   ; PC_BKT  ; WR         ;
+; N/A           ; None             ; 13.243 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][7] ; A_[7]   ; CLK        ;
+; N/A           ; None             ; 13.625 ns      ; bp_r0[3]                                                   ; _D[3]   ; WR         ;
+; N/A           ; None             ; 14.288 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][6] ; A_[6]   ; CLK        ;
+; N/A           ; None             ; 14.291 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][5] ; A_[5]   ; CLK        ;
+; N/A           ; None             ; 14.996 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][3] ; A_[3]   ; CLK        ;
+; N/A           ; None             ; 15.017 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][3] ; MD[3]   ; CLK        ;
+; N/A           ; None             ; 15.026 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][1] ; MD[1]   ; CLK        ;
+; N/A           ; None             ; 15.041 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][4] ; MD[4]   ; CLK        ;
+; N/A           ; None             ; 15.043 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][2] ; MD[2]   ; CLK        ;
+; N/A           ; None             ; 15.050 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][6] ; MD[6]   ; CLK        ;
+; N/A           ; None             ; 15.053 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7] ; MD[7]   ; CLK        ;
+; N/A           ; None             ; 15.105 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][5] ; MD[5]   ; CLK        ;
+; N/A           ; None             ; 15.341 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][4] ; A_[4]   ; CLK        ;
+; N/A           ; None             ; 15.382 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][0] ; MD[0]   ; CLK        ;
+; N/A           ; None             ; 15.476 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][2] ; A_[2]   ; CLK        ;
+; N/A           ; None             ; 15.586 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][9]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 15.784 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][0] ; A_[0]   ; CLK        ;
+; N/A           ; None             ; 15.838 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[11][1] ; A_[1]   ; CLK        ;
+; N/A           ; None             ; 16.066 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][4]  ; _D[4]   ; CLK        ;
+; N/A           ; None             ; 16.390 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][8]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 16.612 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[7]   ; CLK        ;
+; N/A           ; None             ; 16.612 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[6]   ; CLK        ;
+; N/A           ; None             ; 16.624 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[5]   ; CLK        ;
+; N/A           ; None             ; 16.624 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[4]   ; CLK        ;
+; N/A           ; None             ; 16.629 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[1]   ; CLK        ;
+; N/A           ; None             ; 16.629 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[2]   ; CLK        ;
+; N/A           ; None             ; 16.629 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[3]   ; CLK        ;
+; N/A           ; None             ; 16.953 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; C_BE[3] ; CLK        ;
+; N/A           ; None             ; 16.973 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][10] ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 17.001 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; MD[0]   ; CLK        ;
+; N/A           ; None             ; 17.465 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][2]  ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 17.942 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][6]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 18.040 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][3]  ; _D[3]   ; CLK        ;
+; N/A           ; None             ; 18.086 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_wc                            ; C_BE[2] ; CLK        ;
+; N/A           ; None             ; 18.164 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][2]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 18.194 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][15] ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 18.396 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][0]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 18.757 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][3]  ; _D[3]   ; CLK        ;
+; N/A           ; None             ; 18.775 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][3]  ; _D[3]   ; CLK        ;
+; N/A           ; None             ; 18.820 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][13] ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 18.913 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][4]  ; _D[4]   ; CLK        ;
+; N/A           ; None             ; 19.184 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][14] ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 19.219 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][2]  ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 19.237 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][3]  ; _D[3]   ; CLK        ;
+; N/A           ; None             ; 19.330 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][12] ; _D[4]   ; CLK        ;
+; N/A           ; None             ; 19.350 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][3]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 19.444 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][4]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 19.543 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][2]  ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 19.681 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11] ; _D[3]   ; CLK        ;
+; N/A           ; None             ; 19.789 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][1]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 20.043 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][2]  ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 20.082 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][5]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 20.104 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][9]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 20.121 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][2]  ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 20.366 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][10] ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 20.367 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][6]  ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 20.499 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][10] ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 20.505 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][6]  ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 21.157 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][3]  ; _D[3]   ; CLK        ;
+; N/A           ; None             ; 21.272 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]  ; PC_BKT  ; CLK        ;
+; N/A           ; None             ; 21.321 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][3]  ; _D[3]   ; CLK        ;
+; N/A           ; None             ; 21.823 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][2]  ; _D[2]   ; CLK        ;
+; N/A           ; None             ; 21.869 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][4]  ; _D[4]   ; CLK        ;
+; N/A           ; None             ; 21.909 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][5]  ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 21.932 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 22.382 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][8]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 22.504 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][7]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 22.541 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][9]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 22.770 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][4]  ; _D[4]   ; CLK        ;
+; N/A           ; None             ; 22.796 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][4]  ; _D[4]   ; CLK        ;
+; N/A           ; None             ; 22.877 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][5]  ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 23.299 ns      ; bp_r0[5]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 23.319 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][8]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 23.363 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][4]  ; _D[4]   ; CLK        ;
+; N/A           ; None             ; 23.556 ns      ; bp_r0[6]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 23.669 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][0]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 23.936 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][0]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 24.020 ns      ; bp_r0[0]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 24.316 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[2][1]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 24.349 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][7]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 24.449 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][7]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 24.517 ns      ; bp_r0[1]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 24.530 ns      ; ucpu:mycpu|ucu:ucu1|alu_f[0]                               ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 24.616 ns      ; bp_r0[3]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 24.739 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][6]  ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 25.063 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][5]  ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 25.070 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][1]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 25.177 ns      ; bp_r0[2]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 25.507 ns      ; bp_r0[4]                                                   ; _D[7]   ; WR         ;
+; N/A           ; None             ; 25.974 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][5]  ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 26.122 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][7]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 26.727 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][5]  ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 26.793 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][7]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 26.793 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][0]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 27.193 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][6]  ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 27.347 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[3][1]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 28.129 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][5]  ; _D[5]   ; CLK        ;
+; N/A           ; None             ; 28.167 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][9]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 28.766 ns      ; ucpu:mycpu|ucu:ucu1|alu_f[1]                               ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 28.971 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][8]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 29.554 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][10] ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 29.872 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][0]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 29.911 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][1]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 29.936 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][0]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 30.199 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][1]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 30.439 ns      ; ucpu:mycpu|ucu:ucu1|real_ram_rc                            ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 30.505 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][0]  ; _D[0]   ; CLK        ;
+; N/A           ; None             ; 30.523 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][6]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 30.745 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][2]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 30.809 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][1]  ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 30.977 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][0]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 31.274 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[1][6]  ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 31.569 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[0][6]  ; _D[6]   ; CLK        ;
+; N/A           ; None             ; 31.725 ns      ; wc                                                         ; _D[1]   ; CLK        ;
+; N/A           ; None             ; 31.931 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][3]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 32.025 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][4]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 32.370 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][1]  ; _D[7]   ; CLK        ;
+; N/A           ; None             ; 32.663 ns      ; ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][5]  ; _D[7]   ; CLK        ;
++---------------+------------------+----------------+------------------------------------------------------------+---------+------------+
+
+
++------------------------------------------------------------------------+
+; Minimum tpd                                                            ;
++---------------+-------------------+-----------------+--------+---------+
+; Minimum Slack ; Required P2P Time ; Actual P2P Time ; From   ; To      ;
++---------------+-------------------+-----------------+--------+---------+
+; N/A           ; None              ; 9.528 ns        ; CLK    ; CK      ;
+; N/A           ; None              ; 10.778 ns       ; _RD    ; _D[0]   ;
+; N/A           ; None              ; 10.778 ns       ; _RD    ; _D[1]   ;
+; N/A           ; None              ; 10.778 ns       ; _RD    ; _D[2]   ;
+; N/A           ; None              ; 11.239 ns       ; _RD    ; _D[7]   ;
+; N/A           ; None              ; 11.239 ns       ; _RD    ; _D[6]   ;
+; N/A           ; None              ; 11.247 ns       ; _RD    ; _D[3]   ;
+; N/A           ; None              ; 11.247 ns       ; _RD    ; _D[5]   ;
+; N/A           ; None              ; 11.247 ns       ; _RD    ; _D[4]   ;
+; N/A           ; None              ; 11.303 ns       ; _A[11] ; _D[0]   ;
+; N/A           ; None              ; 11.303 ns       ; _A[11] ; _D[1]   ;
+; N/A           ; None              ; 11.303 ns       ; _A[11] ; _D[2]   ;
+; N/A           ; None              ; 11.764 ns       ; _A[11] ; _D[7]   ;
+; N/A           ; None              ; 11.764 ns       ; _A[11] ; _D[6]   ;
+; N/A           ; None              ; 11.772 ns       ; _A[11] ; _D[3]   ;
+; N/A           ; None              ; 11.772 ns       ; _A[11] ; _D[5]   ;
+; N/A           ; None              ; 11.772 ns       ; _A[11] ; _D[4]   ;
+; N/A           ; None              ; 12.736 ns       ; RUN    ; A_[12]  ;
+; N/A           ; None              ; 12.748 ns       ; RUN    ; A_[13]  ;
+; N/A           ; None              ; 12.748 ns       ; RUN    ; A_[14]  ;
+; N/A           ; None              ; 13.096 ns       ; RUN    ; A_[11]  ;
+; N/A           ; None              ; 13.333 ns       ; RUN    ; A_[15]  ;
+; N/A           ; None              ; 13.423 ns       ; RUN    ; A_[16]  ;
+; N/A           ; None              ; 13.423 ns       ; RUN    ; A_[17]  ;
+; N/A           ; None              ; 13.423 ns       ; RUN    ; A_[18]  ;
+; N/A           ; None              ; 13.892 ns       ; A_[10] ; A_31    ;
+; N/A           ; None              ; 14.200 ns       ; _A[7]  ; _D[4]   ;
+; N/A           ; None              ; 14.204 ns       ; _A[7]  ; _D[3]   ;
+; N/A           ; None              ; 14.208 ns       ; RUN    ; A_[10]  ;
+; N/A           ; None              ; 14.319 ns       ; _A[5]  ; _D[1]   ;
+; N/A           ; None              ; 14.328 ns       ; _A[5]  ; _D[0]   ;
+; N/A           ; None              ; 14.402 ns       ; _A[6]  ; _D[4]   ;
+; N/A           ; None              ; 14.405 ns       ; _A[6]  ; _D[3]   ;
+; N/A           ; None              ; 14.546 ns       ; RUN    ; A_[8]   ;
+; N/A           ; None              ; 14.546 ns       ; RUN    ; A_[9]   ;
+; N/A           ; None              ; 14.640 ns       ; RUN    ; A_[7]   ;
+; N/A           ; None              ; 14.677 ns       ; _A[1]  ; _D[7]   ;
+; N/A           ; None              ; 14.684 ns       ; _A[1]  ; _D[6]   ;
+; N/A           ; None              ; 14.701 ns       ; _A[1]  ; _D[2]   ;
+; N/A           ; None              ; 14.725 ns       ; _A[1]  ; _D[5]   ;
+; N/A           ; None              ; 14.987 ns       ; _A[7]  ; _D[2]   ;
+; N/A           ; None              ; 15.011 ns       ; RUN    ; A_[19]  ;
+; N/A           ; None              ; 15.187 ns       ; _A[6]  ; _D[2]   ;
+; N/A           ; None              ; 15.371 ns       ; RUN    ; A_[6]   ;
+; N/A           ; None              ; 15.416 ns       ; RUN    ; A_[20]  ;
+; N/A           ; None              ; 15.416 ns       ; RUN    ; A_[21]  ;
+; N/A           ; None              ; 15.449 ns       ; _0x6   ; _D[0]   ;
+; N/A           ; None              ; 15.449 ns       ; _0x6   ; _D[1]   ;
+; N/A           ; None              ; 15.449 ns       ; _0x6   ; _D[2]   ;
+; N/A           ; None              ; 15.463 ns       ; _A[4]  ; _D[1]   ;
+; N/A           ; None              ; 15.464 ns       ; _A[4]  ; _D[0]   ;
+; N/A           ; None              ; 15.519 ns       ; _A[10] ; _D[0]   ;
+; N/A           ; None              ; 15.519 ns       ; _A[10] ; _D[1]   ;
+; N/A           ; None              ; 15.519 ns       ; _A[10] ; _D[2]   ;
+; N/A           ; None              ; 15.679 ns       ; RUN    ; A_[5]   ;
+; N/A           ; None              ; 15.682 ns       ; _A[5]  ; _D[3]   ;
+; N/A           ; None              ; 15.704 ns       ; RUN    ; A_[4]   ;
+; N/A           ; None              ; 15.746 ns       ; _A[3]  ; _D[1]   ;
+; N/A           ; None              ; 15.747 ns       ; _A[3]  ; _D[0]   ;
+; N/A           ; None              ; 15.866 ns       ; _A[7]  ; _D[1]   ;
+; N/A           ; None              ; 15.877 ns       ; _A[7]  ; _D[0]   ;
+; N/A           ; None              ; 15.898 ns       ; RUN    ; A_[22]  ;
+; N/A           ; None              ; 15.905 ns       ; _CS    ; _D[0]   ;
+; N/A           ; None              ; 15.905 ns       ; _CS    ; _D[1]   ;
+; N/A           ; None              ; 15.905 ns       ; _CS    ; _D[2]   ;
+; N/A           ; None              ; 15.910 ns       ; _0x6   ; _D[7]   ;
+; N/A           ; None              ; 15.910 ns       ; _0x6   ; _D[6]   ;
+; N/A           ; None              ; 15.918 ns       ; _0x6   ; _D[3]   ;
+; N/A           ; None              ; 15.918 ns       ; _0x6   ; _D[5]   ;
+; N/A           ; None              ; 15.918 ns       ; _0x6   ; _D[4]   ;
+; N/A           ; None              ; 15.980 ns       ; _A[10] ; _D[7]   ;
+; N/A           ; None              ; 15.980 ns       ; _A[10] ; _D[6]   ;
+; N/A           ; None              ; 15.988 ns       ; _A[10] ; _D[3]   ;
+; N/A           ; None              ; 15.988 ns       ; _A[10] ; _D[5]   ;
+; N/A           ; None              ; 15.988 ns       ; _A[10] ; _D[4]   ;
+; N/A           ; None              ; 16.064 ns       ; RUN    ; A_[1]   ;
+; N/A           ; None              ; 16.066 ns       ; _A[6]  ; _D[1]   ;
+; N/A           ; None              ; 16.077 ns       ; _A[6]  ; _D[0]   ;
+; N/A           ; None              ; 16.077 ns       ; RUN    ; A_[2]   ;
+; N/A           ; None              ; 16.077 ns       ; RUN    ; A_[3]   ;
+; N/A           ; None              ; 16.260 ns       ; _A[1]  ; _D[4]   ;
+; N/A           ; None              ; 16.351 ns       ; RUN    ; A_[23]  ;
+; N/A           ; None              ; 16.366 ns       ; _CS    ; _D[7]   ;
+; N/A           ; None              ; 16.366 ns       ; _CS    ; _D[6]   ;
+; N/A           ; None              ; 16.374 ns       ; _CS    ; _D[3]   ;
+; N/A           ; None              ; 16.374 ns       ; _CS    ; _D[5]   ;
+; N/A           ; None              ; 16.374 ns       ; RUN    ; A_[0]   ;
+; N/A           ; None              ; 16.374 ns       ; _CS    ; _D[4]   ;
+; N/A           ; None              ; 16.453 ns       ; _A[0]  ; _D[2]   ;
+; N/A           ; None              ; 16.458 ns       ; _A[1]  ; _D[1]   ;
+; N/A           ; None              ; 16.459 ns       ; _A[1]  ; _D[0]   ;
+; N/A           ; None              ; 16.474 ns       ; _A[0]  ; _D[1]   ;
+; N/A           ; None              ; 16.475 ns       ; _A[0]  ; _D[0]   ;
+; N/A           ; None              ; 16.540 ns       ; _A[1]  ; _D[3]   ;
+; N/A           ; None              ; 16.562 ns       ; _A[4]  ; _D[7]   ;
+; N/A           ; None              ; 16.569 ns       ; _A[4]  ; _D[6]   ;
+; N/A           ; None              ; 16.596 ns       ; _A[5]  ; _D[2]   ;
+; N/A           ; None              ; 16.606 ns       ; _A[4]  ; _D[5]   ;
+; N/A           ; None              ; 16.611 ns       ; _A[3]  ; _D[3]   ;
+; N/A           ; None              ; 16.714 ns       ; _A[7]  ; _D[7]   ;
+; N/A           ; None              ; 16.721 ns       ; _A[7]  ; _D[6]   ;
+; N/A           ; None              ; 16.758 ns       ; _A[7]  ; _D[5]   ;
+; N/A           ; None              ; 16.914 ns       ; _A[6]  ; _D[7]   ;
+; N/A           ; None              ; 16.920 ns       ; _A[0]  ; _D[4]   ;
+; N/A           ; None              ; 16.921 ns       ; _A[6]  ; _D[6]   ;
+; N/A           ; None              ; 16.958 ns       ; _A[6]  ; _D[5]   ;
+; N/A           ; None              ; 16.973 ns       ; _A[5]  ; _D[7]   ;
+; N/A           ; None              ; 16.980 ns       ; _A[5]  ; _D[6]   ;
+; N/A           ; None              ; 17.017 ns       ; _A[5]  ; _D[5]   ;
+; N/A           ; None              ; 17.200 ns       ; _A[0]  ; _D[3]   ;
+; N/A           ; None              ; 17.257 ns       ; _A[0]  ; _D[7]   ;
+; N/A           ; None              ; 17.264 ns       ; _A[0]  ; _D[6]   ;
+; N/A           ; None              ; 17.301 ns       ; _A[0]  ; _D[5]   ;
+; N/A           ; None              ; 17.304 ns       ; _A[4]  ; _D[3]   ;
+; N/A           ; None              ; 17.363 ns       ; MD[1]  ; _D[1]   ;
+; N/A           ; None              ; 17.390 ns       ; A_[7]  ; _D[7]   ;
+; N/A           ; None              ; 17.447 ns       ; A_[1]  ; _D[1]   ;
+; N/A           ; None              ; 17.478 ns       ; A_[0]  ; _D[0]   ;
+; N/A           ; None              ; 17.535 ns       ; _A[3]  ; _D[2]   ;
+; N/A           ; None              ; 17.801 ns       ; MD[5]  ; _D[5]   ;
+; N/A           ; None              ; 17.853 ns       ; MD[7]  ; _D[7]   ;
+; N/A           ; None              ; 17.874 ns       ; MD[6]  ; _D[6]   ;
+; N/A           ; None              ; 17.965 ns       ; _A[5]  ; _D[4]   ;
+; N/A           ; None              ; 18.041 ns       ; _A[2]  ; _D[2]   ;
+; N/A           ; None              ; 18.060 ns       ; _A[2]  ; _D[7]   ;
+; N/A           ; None              ; 18.203 ns       ; _A[4]  ; _D[2]   ;
+; N/A           ; None              ; 18.328 ns       ; A_[6]  ; _D[6]   ;
+; N/A           ; None              ; 18.349 ns       ; MD[0]  ; _D[0]   ;
+; N/A           ; None              ; 18.571 ns       ; _A[4]  ; _D[4]   ;
+; N/A           ; None              ; 18.589 ns       ; _A[3]  ; _D[7]   ;
+; N/A           ; None              ; 18.599 ns       ; RUN    ; C_BE[3] ;
+; N/A           ; None              ; 18.681 ns       ; _A[2]  ; _D[0]   ;
+; N/A           ; None              ; 18.698 ns       ; _A[2]  ; _D[1]   ;
+; N/A           ; None              ; 18.711 ns       ; _A[3]  ; _D[6]   ;
+; N/A           ; None              ; 18.748 ns       ; _A[3]  ; _D[5]   ;
+; N/A           ; None              ; 18.883 ns       ; A_[5]  ; _D[5]   ;
+; N/A           ; None              ; 18.889 ns       ; RUN    ; C_BE[2] ;
+; N/A           ; None              ; 18.985 ns       ; _A[2]  ; _D[4]   ;
+; N/A           ; None              ; 18.999 ns       ; _A[2]  ; _D[3]   ;
+; N/A           ; None              ; 19.122 ns       ; _A[2]  ; _D[6]   ;
+; N/A           ; None              ; 19.307 ns       ; _A[3]  ; _D[4]   ;
+; N/A           ; None              ; 19.331 ns       ; _A[2]  ; _D[5]   ;
+; N/A           ; None              ; 19.357 ns       ; A_[9]  ; _D[1]   ;
+; N/A           ; None              ; 19.445 ns       ; A_[10] ; _D[2]   ;
+; N/A           ; None              ; 19.509 ns       ; A_[2]  ; _D[2]   ;
+; N/A           ; None              ; 19.517 ns       ; MD[2]  ; _D[2]   ;
+; N/A           ; None              ; 21.663 ns       ; A_[8]  ; _D[0]   ;
+; N/A           ; None              ; 22.436 ns       ; A_[3]  ; _D[3]   ;
+; N/A           ; None              ; 23.376 ns       ; A_[4]  ; _D[4]   ;
+; N/A           ; None              ; 23.502 ns       ; MD[3]  ; _D[3]   ;
+; N/A           ; None              ; 24.780 ns       ; MD[4]  ; _D[4]   ;
++---------------+-------------------+-----------------+--------+---------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Timing Analyzer
+    Info: Version 6.0 Build 178 04/27/2006 SJ Full Version
+    Info: Processing started: Fri Dec 23 22:24:31 2011
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off ep1c12 -c ep1c12 --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLK" is an undefined clock
+    Info: Assuming node "WR" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "ucpu:mycpu|ucu:ucu1|real_ram_wc" as buffer
+Info: Clock "CLK" has Internal fmax of 29.44 MHz between source register "ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11]" and destination memory "ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0" (period= 33.97 ns)
+    Info: + Longest register to memory delay is 16.644 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X22_Y14_N2; Fanout = 33; REG Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11]'
+        Info: 2: + IC(1.463 ns) + CELL(0.590 ns) = 2.053 ns; Loc. = LC_X23_Y16_N9; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|Mux15~20'
+        Info: 3: + IC(1.201 ns) + CELL(0.114 ns) = 3.368 ns; Loc. = LC_X22_Y16_N7; Fanout = 2; COMB Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|Mux15~21'
+        Info: 4: + IC(0.762 ns) + CELL(0.292 ns) = 4.422 ns; Loc. = LC_X21_Y16_N5; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|b[0]~5031'
+        Info: 5: + IC(0.418 ns) + CELL(0.114 ns) = 4.954 ns; Loc. = LC_X21_Y16_N0; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|b[0]~5032'
+        Info: 6: + IC(0.688 ns) + CELL(0.442 ns) = 6.084 ns; Loc. = LC_X22_Y16_N3; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|b[0]~5041'
+        Info: 7: + IC(1.601 ns) + CELL(0.292 ns) = 7.977 ns; Loc. = LC_X25_Y14_N2; Fanout = 12; COMB Node = 'ucpu:mycpu|regalu:regalu1|b[0]~5042'
+        Info: 8: + IC(1.306 ns) + CELL(0.590 ns) = 9.873 ns; Loc. = LC_X24_Y12_N0; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|alu:alu1|Add1~138'
+        Info: 9: + IC(1.618 ns) + CELL(0.292 ns) = 11.783 ns; Loc. = LC_X26_Y14_N5; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|alu:alu1|Selector15~228'
+        Info: 10: + IC(0.430 ns) + CELL(0.114 ns) = 12.327 ns; Loc. = LC_X26_Y14_N0; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|alu:alu1|Selector15~229'
+        Info: 11: + IC(0.424 ns) + CELL(0.114 ns) = 12.865 ns; Loc. = LC_X26_Y14_N2; Fanout = 1; COMB Node = 'ucpu:mycpu|regalu:regalu1|alu:alu1|Selector15~230'
+        Info: 12: + IC(0.182 ns) + CELL(0.114 ns) = 13.161 ns; Loc. = LC_X26_Y14_N3; Fanout = 17; COMB Node = 'ucpu:mycpu|regalu:regalu1|alu:alu1|Selector15~231'
+        Info: 13: + IC(0.425 ns) + CELL(0.114 ns) = 13.700 ns; Loc. = LC_X26_Y14_N1; Fanout = 3; COMB Node = 'ucpu:mycpu|ucu:ucu1|Add0~1339'
+        Info: 14: + IC(2.561 ns) + CELL(0.383 ns) = 16.644 ns; Loc. = M4K_X19_Y12; Fanout = 6; MEM Node = 'ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0'
+        Info: Total cell delay = 3.565 ns ( 21.42 % )
+        Info: Total interconnect delay = 13.079 ns ( 78.58 % )
+    Info: - Smallest clock skew is -0.024 ns
+        Info: + Shortest clock path from clock "CLK" to destination memory is 7.894 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.475 ns) = 1.475 ns; Loc. = PIN_237; Fanout = 290; CLK Node = 'CLK'
+            Info: 2: + IC(5.697 ns) + CELL(0.722 ns) = 7.894 ns; Loc. = M4K_X19_Y12; Fanout = 6; MEM Node = 'ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0'
+            Info: Total cell delay = 2.197 ns ( 27.83 % )
+            Info: Total interconnect delay = 5.697 ns ( 72.17 % )
+        Info: - Longest clock path from clock "CLK" to source register is 7.918 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.475 ns) = 1.475 ns; Loc. = PIN_237; Fanout = 290; CLK Node = 'CLK'
+            Info: 2: + IC(5.732 ns) + CELL(0.711 ns) = 7.918 ns; Loc. = LC_X22_Y14_N2; Fanout = 33; REG Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11]'
+            Info: Total cell delay = 2.186 ns ( 27.61 % )
+            Info: Total interconnect delay = 5.732 ns ( 72.39 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Micro setup delay of destination is 0.093 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50, fmax is divided by two
+Info: No valid register-to-register data paths exist for clock "WR"
+Info: tsu for register "bp_r0[4]" (data pin = "_A[2]", clock pin = "WR") is 11.962 ns
+    Info: + Longest pin to register delay is 15.171 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_53; Fanout = 32; PIN Node = '_A[2]'
+        Info: 2: + IC(8.620 ns) + CELL(0.590 ns) = 10.679 ns; Loc. = LC_X21_Y15_N1; Fanout = 3; COMB Node = 'Selector6~654'
+        Info: 3: + IC(1.519 ns) + CELL(0.442 ns) = 12.640 ns; Loc. = LC_X15_Y15_N7; Fanout = 8; COMB Node = 'en_bp_r0~22'
+        Info: 4: + IC(1.664 ns) + CELL(0.867 ns) = 15.171 ns; Loc. = LC_X17_Y16_N5; Fanout = 2; REG Node = 'bp_r0[4]'
+        Info: Total cell delay = 3.368 ns ( 22.20 % )
+        Info: Total interconnect delay = 11.803 ns ( 77.80 % )
+    Info: + Micro setup delay of destination is 0.037 ns
+    Info: - Shortest clock path from clock "WR" to destination register is 3.246 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_153; Fanout = 8; CLK Node = 'WR'
+        Info: 2: + IC(1.066 ns) + CELL(0.711 ns) = 3.246 ns; Loc. = LC_X17_Y16_N5; Fanout = 2; REG Node = 'bp_r0[4]'
+        Info: Total cell delay = 2.180 ns ( 67.16 % )
+        Info: Total interconnect delay = 1.066 ns ( 32.84 % )
+Info: tco from clock "CLK" to destination pin "_D[7]" through register "ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]" is 33.853 ns
+    Info: + Longest clock path from clock "CLK" to source register is 7.885 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.475 ns) = 1.475 ns; Loc. = PIN_237; Fanout = 290; CLK Node = 'CLK'
+        Info: 2: + IC(5.699 ns) + CELL(0.711 ns) = 7.885 ns; Loc. = LC_X27_Y13_N4; Fanout = 4; REG Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]'
+        Info: Total cell delay = 2.186 ns ( 27.72 % )
+        Info: Total interconnect delay = 5.699 ns ( 72.28 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Longest register to pin delay is 25.744 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X27_Y13_N4; Fanout = 4; REG Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]'
+        Info: 2: + IC(4.301 ns) + CELL(0.590 ns) = 4.891 ns; Loc. = LC_X16_Y16_N9; Fanout = 1; COMB Node = 'Equal2~124'
+        Info: 3: + IC(1.108 ns) + CELL(0.590 ns) = 6.589 ns; Loc. = LC_X16_Y16_N8; Fanout = 1; COMB Node = 'Equal2~128'
+        Info: 4: + IC(1.245 ns) + CELL(0.292 ns) = 8.126 ns; Loc. = LC_X16_Y14_N4; Fanout = 2; COMB Node = 'Equal2~129'
+        Info: 5: + IC(1.622 ns) + CELL(0.442 ns) = 10.190 ns; Loc. = LC_X18_Y15_N2; Fanout = 1; COMB Node = 'Selector0~142'
+        Info: 6: + IC(0.182 ns) + CELL(0.114 ns) = 10.486 ns; Loc. = LC_X18_Y15_N3; Fanout = 1; COMB Node = 'Selector0~143'
+        Info: 7: + IC(1.538 ns) + CELL(0.442 ns) = 12.466 ns; Loc. = LC_X25_Y15_N1; Fanout = 1; COMB Node = 'Selector0~144'
+        Info: 8: + IC(2.390 ns) + CELL(0.292 ns) = 15.148 ns; Loc. = LC_X21_Y9_N4; Fanout = 1; COMB Node = 'Selector0~145'
+        Info: 9: + IC(2.560 ns) + CELL(0.292 ns) = 18.000 ns; Loc. = LC_X18_Y17_N3; Fanout = 1; COMB Node = 'Selector0~146'
+        Info: 10: + IC(0.423 ns) + CELL(0.114 ns) = 18.537 ns; Loc. = LC_X18_Y17_N0; Fanout = 1; COMB Node = 'Selector0~147'
+        Info: 11: + IC(1.564 ns) + CELL(0.292 ns) = 20.393 ns; Loc. = LC_X16_Y16_N5; Fanout = 1; COMB Node = 'Selector0~148'
+        Info: 12: + IC(3.227 ns) + CELL(2.124 ns) = 25.744 ns; Loc. = PIN_12; Fanout = 0; PIN Node = '_D[7]'
+        Info: Total cell delay = 5.584 ns ( 21.69 % )
+        Info: Total interconnect delay = 20.160 ns ( 78.31 % )
+Info: Longest tpd from source pin "_A[5]" to destination pin "_D[6]" is 33.255 ns
+    Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_47; Fanout = 30; PIN Node = '_A[5]'
+    Info: 2: + IC(9.383 ns) + CELL(0.442 ns) = 11.294 ns; Loc. = LC_X21_Y17_N8; Fanout = 1; COMB Node = 'Selector1~144'
+    Info: 3: + IC(3.283 ns) + CELL(0.590 ns) = 15.167 ns; Loc. = LC_X18_Y15_N9; Fanout = 1; COMB Node = 'Selector1~145'
+    Info: 4: + IC(5.040 ns) + CELL(0.114 ns) = 20.321 ns; Loc. = LC_X25_Y15_N4; Fanout = 1; COMB Node = 'Selector1~146'
+    Info: 5: + IC(2.113 ns) + CELL(0.292 ns) = 22.726 ns; Loc. = LC_X21_Y9_N2; Fanout = 1; COMB Node = 'Selector1~147'
+    Info: 6: + IC(2.080 ns) + CELL(0.114 ns) = 24.920 ns; Loc. = LC_X18_Y17_N5; Fanout = 1; COMB Node = 'Selector1~148'
+    Info: 7: + IC(0.402 ns) + CELL(0.442 ns) = 25.764 ns; Loc. = LC_X18_Y17_N6; Fanout = 1; COMB Node = 'Selector1~149'
+    Info: 8: + IC(1.542 ns) + CELL(0.590 ns) = 27.896 ns; Loc. = LC_X16_Y16_N6; Fanout = 1; COMB Node = 'Selector1~150'
+    Info: 9: + IC(3.235 ns) + CELL(2.124 ns) = 33.255 ns; Loc. = PIN_13; Fanout = 0; PIN Node = '_D[6]'
+    Info: Total cell delay = 6.177 ns ( 18.57 % )
+    Info: Total interconnect delay = 27.078 ns ( 81.43 % )
+Info: th for register "ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7]" (data pin = "MD[7]", clock pin = "CLK") is -1.979 ns
+    Info: + Longest clock path from clock "CLK" to destination register is 7.955 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.475 ns) = 1.475 ns; Loc. = PIN_237; Fanout = 290; CLK Node = 'CLK'
+        Info: 2: + IC(5.769 ns) + CELL(0.711 ns) = 7.955 ns; Loc. = LC_X22_Y17_N5; Fanout = 4; REG Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7]'
+        Info: Total cell delay = 2.186 ns ( 27.48 % )
+        Info: Total interconnect delay = 5.769 ns ( 72.52 % )
+    Info: + Micro hold delay of destination is 0.015 ns
+    Info: - Shortest pin to register delay is 9.949 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_166; Fanout = 1; PIN Node = 'MD[7]'
+        Info: 2: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = IOC_X53_Y22_N1; Fanout = 2; COMB Node = 'MD[7]~24'
+        Info: 3: + IC(8.171 ns) + CELL(0.309 ns) = 9.949 ns; Loc. = LC_X22_Y17_N5; Fanout = 4; REG Node = 'ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7]'
+        Info: Total cell delay = 1.778 ns ( 17.87 % )
+        Info: Total interconnect delay = 8.171 ns ( 82.13 % )
+Info: Minimum tco from clock "WR" to destination pin "_D[6]" through register "bp_r0[6]" is 9.207 ns
+    Info: + Shortest clock path from clock "WR" to source register is 3.246 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_153; Fanout = 8; CLK Node = 'WR'
+        Info: 2: + IC(1.066 ns) + CELL(0.711 ns) = 3.246 ns; Loc. = LC_X16_Y16_N6; Fanout = 2; REG Node = 'bp_r0[6]'
+        Info: Total cell delay = 2.180 ns ( 67.16 % )
+        Info: Total interconnect delay = 1.066 ns ( 32.84 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Shortest register to pin delay is 5.737 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X16_Y16_N6; Fanout = 2; REG Node = 'bp_r0[6]'
+        Info: 2: + IC(0.000 ns) + CELL(0.378 ns) = 0.378 ns; Loc. = LC_X16_Y16_N6; Fanout = 1; COMB Node = 'Selector1~150'
+        Info: 3: + IC(3.235 ns) + CELL(2.124 ns) = 5.737 ns; Loc. = PIN_13; Fanout = 0; PIN Node = '_D[6]'
+        Info: Total cell delay = 2.502 ns ( 43.61 % )
+        Info: Total interconnect delay = 3.235 ns ( 56.39 % )
+Info: Shortest tpd from source pin "CLK" to destination pin "CK" is 9.528 ns
+    Info: 1: + IC(0.000 ns) + CELL(1.475 ns) = 1.475 ns; Loc. = PIN_237; Fanout = 290; CLK Node = 'CLK'
+    Info: 2: + IC(5.945 ns) + CELL(2.108 ns) = 9.528 ns; Loc. = PIN_234; Fanout = 0; PIN Node = 'CK'
+    Info: Total cell delay = 3.583 ns ( 37.60 % )
+    Info: Total interconnect delay = 5.945 ns ( 62.40 % )
+Info: Quartus II Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Processing ended: Fri Dec 23 22:24:31 2011
+    Info: Elapsed time: 00:00:01
+
+

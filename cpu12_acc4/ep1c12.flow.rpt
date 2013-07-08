@@ -1,0 +1,99 @@
+Flow report for ep1c12
+Fri Dec 23 22:24:31 2011
+Version 6.0 Build 178 04/27/2006 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------+
+; Flow Summary                                                       ;
++-------------------------+------------------------------------------+
+; Flow Status             ; Successful - Fri Dec 23 22:24:31 2011    ;
+; Quartus II Version      ; 6.0 Build 178 04/27/2006 SJ Full Version ;
+; Revision Name           ; ep1c12                                   ;
+; Top-level Entity Name   ; ep1c12                                   ;
+; Family                  ; Cyclone                                  ;
+; Device                  ; EP1C12Q240C8                             ;
+; Timing Models           ; Final                                    ;
+; Met timing requirements ; Yes                                      ;
+; Total logic elements    ; 815 / 12,060 ( 7 % )                     ;
+; Total pins              ; 138 / 173 ( 80 % )                       ;
+; Total virtual pins      ; 0                                        ;
+; Total memory bits       ; 6,144 / 239,616 ( 3 % )                  ;
+; Total PLLs              ; 0 / 2 ( 0 % )                            ;
++-------------------------+------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 12/23/2011 22:24:09 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; ep1c12              ;
++-------------------+---------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                   ;
++---------------------------------+-------+---------------+-------------+------------+
+; Assignment Name                 ; Value ; Default Value ; Entity Name ; Section Id ;
++---------------------------------+-------+---------------+-------------+------------+
+; CUT_OFF_READ_DURING_WRITE_PATHS ; Off   ; On            ; --          ; --         ;
+; EXCLUDE_TPD_PATHS_LESS_THAN     ; 0 ns  ; --            ; --          ; --         ;
++---------------------------------+-------+---------------+-------------+------------+
+
+
++-------------------------------------+
+; Flow Elapsed Time                   ;
++----------------------+--------------+
+; Module Name          ; Elapsed Time ;
++----------------------+--------------+
+; Analysis & Synthesis ; 00:00:08     ;
+; Fitter               ; 00:00:09     ;
+; Assembler            ; 00:00:01     ;
+; Timing Analyzer      ; 00:00:01     ;
+; Total                ; 00:00:19     ;
++----------------------+--------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off ep1c12 -c ep1c12
+quartus_fit --read_settings_files=off --write_settings_files=off ep1c12 -c ep1c12
+quartus_asm --read_settings_files=off --write_settings_files=off ep1c12 -c ep1c12
+quartus_tan --read_settings_files=off --write_settings_files=off ep1c12 -c ep1c12 --timing_analysis_only
+
+
+

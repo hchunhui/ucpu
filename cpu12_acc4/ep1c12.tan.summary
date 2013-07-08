@@ -1,0 +1,86 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.962 ns
+From           : _A[2]
+To             : bp_r0[4]
+From Clock     : --
+To Clock       : WR
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 33.853 ns
+From           : ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[8][7]
+To             : _D[7]
+From Clock     : CLK
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 33.255 ns
+From           : _A[5]
+To             : _D[6]
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -1.979 ns
+From           : MD[7]
+To             : ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[10][7]
+From Clock     : --
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.207 ns
+From           : bp_r0[6]
+To             : _D[6]
+From Clock     : WR
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.528 ns
+From           : CLK
+To             : CK
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Clock Setup: 'CLK'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 29.44 MHz ( period = 33.970 ns )
+From           : ucpu:mycpu|regalu:regalu1|regfile_mem_ir:regfile1|r[9][11]
+To             : ucpu:mycpu|lpm_rom:um|altrom:srom|altsyncram:rom_block|altsyncram_4uv:auto_generated|ram_block1a9~porta_address_reg0
+From Clock     : CLK
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

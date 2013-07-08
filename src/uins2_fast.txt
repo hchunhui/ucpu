@@ -1,0 +1,190 @@
+微指令格式：
+alu_f_en fop asrc bsrc j_flags wc rc imm8
+    1     3    4    4     2     1  1   8
+
+{j_flags}  跳转方式    地址
+     00               不转       ----
+	 01              条件转      imm8
+	 10               必转       imm8
+	 11               必转       运算器结果
+
+条件转：
+z:1
+c:2
+a0:4
+
+寄存器分配
+  0  r0
+  1  r1
+  2  r2
+  3  r3
+  4  wa
+  5  wb
+  6  addr
+  7  op
+  8  pc
+  9  ir
+  a  mdr
+  b  mar
+  c  sp
+  d  src(A口:asrc, B口:bsrc)
+  e  tmp
+  f  imm/null 
+
+3'b000: //ld
+	d = b;
+3'b001: //add16
+	{df[1], d} = a + b;
+3'b010: //nor
+	d = ~(a|b);
+3'b011: //ldh
+	d = b << 8;
+3'b100: //add8
+	begin
+		{df[1], d[7:0]} = a[7:0] + b[7:0];
+		d[15:8] = 8'b0;
+	end
+3'b101: //sub8
+	begin
+		{df[1], d[7:0]} = a[7:0] - b[7:0];
+		d[15:8] = 8'b0;
+	end
+3'b110: //shl
+	d = b >> 1;
+3'b111: //rrc8
+	begin
+		d[6:0] = b[7:1];
+		df[1] = b[0];
+		d[7] = f[1];
+		d[15:8] = b[15:8];
+	end
+	
+指令
+      1.取指令并解码  从0
+00      0cf080 sp <- 80 //初始化sp
+01      0b8000 mar <- pc
+02      18f101 pc <- pc + 1, rc <- 1
+03      39a000 irh <- mdr
+04      17fc10 jmp op(ir)+16
+05      ...
+06      ...
+      2.跳转表 从16
+10      c45801 al <- al+bl,jmp 1 //add8
+11      045821 al <- bl, jmp rrc //rrc8
+12      0e5822 tmp <- b, jmp and //and
+13      5ee858 tmp <- 0, jmp ret //ret
+14      d45801 a <- a-b , jmp 1  //sub8
+15      iret
+16      045820 a <- b,   jmp inc //inc
+17      245825 a<-nor(a,b) jmp or//or
+18      0b8828 mar <- pc,jmp ld  //ld
+19      0b8828 mar <- pc,jmp ld  //ld
+1a      0b8830 mar <- pc,jmp st  //st
+1b      0b8830 mar <- pc,jmp st  //st
+1c      1dfc38 jmp src+br        //jmp..
+1d      1dfc38 jmp src+br        //jmp..
+1e      0b882d mar <- pc,jmp ldi //ldi
+1f      0b8860 mar <- pc,jmp call//call
+      
+      inc:
+20      c4f801 a <- a + 1, jmp 1
+      rrc:
+21      f44801 al <- rrc8(al), jmp 1
+      and:
+22      2ef000 tmp <- nor(tmp, 0)
+23      24f000 a <- nor(a, 0)
+24      a4e801 a <- nor(a, tmp), jmp 1
+      or:
+25      24f000 a <- nor(a, 0)
+26      0ff801 jmp 1
+
+      ld:
+28      18f101 pc <- pc + 1, rc <- 1
+29      19a000 irl <- mdr
+        
+2a      0b6000 mar<-addr
+2b      0ff100 rc <- 1
+2c      84a801 a <- mdr, jmp 1
+
+      ldi:
+2d      18f101 pc <- pc + 1, rc <- 1
+2e      04a801 a <- mdr, jmp 1
+
+      st:
+30      18f101 pc <- pc + 1, rc <- 1
+31      19a000 irl <- mdr
+      
+32      0a4000 mdr <- a
+33      0b6000 mar <- addr
+34      0ffa01 wc <- 1, jmp 1
+      
+      jmp*:
+38    br:0b8440 mar <- pc, br c   //c
+39       0b8448 mar <- pc, br z   //z
+3a       0b8450 mar <- pc, br a0  //a0
+3b       0b8000 mar <- pc         //jmp
+3c       0ff100 rc <- 1
+3d     j:19a000 irl <- mdr
+3e       086801 pc <- addr, jmp 1
+
+     c:
+40       18f801 pc <- pc + 1, jmp 1
+41       18f801 pc <- pc + 1, jmp 1
+42       0ff93d rc <- 1, jmp j
+43       0ff93d rc <- 1, jmp j
+44       18f801 pc <- pc + 1, jmp 1
+45       18f801 pc <- pc + 1, jmp 1
+46       0ff93d rc <- 1, jmp j
+47       0ff93d rc <- 1, jmp j
+     z:
+48       18f801 pc <- pc + 1, jmp 1
+49       0ff93d rc <- 1, jmp j
+4a       18f801 pc <- pc + 1, jmp 1
+4b       0ff93d rc <- 1, jmp j
+4c       18f801 pc <- pc + 1, jmp 1
+4d       0ff93d rc <- 1, jmp j
+4e       18f801 pc <- pc + 1, jmp 1
+4f       0ff93d rc <- 1, jmp j
+     a0:
+50       18f801 pc <- pc + 1, jmp 1
+51       18f801 pc <- pc + 1, jmp 1
+52       18f801 pc <- pc + 1, jmp 1
+53       18f801 pc <- pc + 1, jmp 1
+54       0ff93d rc <- 1, jmp j
+55       0ff93d rc <- 1, jmp j
+56       0ff93d rc <- 1, jmp j
+57       0ff93d rc <- 1, jmp j
+
+/*
+fl:18f801 pc <- pc + 1, jmp 1
+ok:0ff942 rc <- 1, jmp ok
+
+    z  c  a
+000
+001 ok
+010    ok
+011 ok ok
+100       ok
+101 ok    ok
+110    ok ok
+111 ok ok ok
+*/
+
+/*
+Addr→PC  PC→(sp) stack
+最高址=0   SP+1→SP
+*/
+      call:
+60     18f101 pc <- pc + 1, rc <- 1
+61     19a000 irl <- mdr
+62     0bc000 mar <- sp
+63     0a8000 mdr <- pc
+64     1cc201 sp <- sp + 1, wc <- 1
+65     086801 pc <- addr, jmp 1
+
+      ret:
+58	   2ef000 tmp <- nor(tmp, 0)
+59	   1ce000 sp <- sp + tmp
+5a	   0bc000 mar <- sp
+5b     0ff100 rc <- 1
+5c	   08a801 pc <- mdr, jmp 1
